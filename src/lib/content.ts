@@ -3,9 +3,7 @@ import {
   experiences,
   interests,
   projects,
-  researchAreas,
   siteProfiles,
-  skillGroups,
 } from "@/content/public";
 import { locales, type ContentMeta, type Locale, type LocalizedContent } from "@/content/types";
 
@@ -38,6 +36,12 @@ function assertUnique(values: string[], label: string): void {
   }
 }
 
+function assertNonEmpty(value: string | undefined, label: string): void {
+  if (!value?.trim()) {
+    throw new Error(`${label} must not be empty.`);
+  }
+}
+
 export function assertContentIntegrity(): void {
   const publicProjects = publicOnly(projects);
   const featuredByLocale = Object.fromEntries(
@@ -49,6 +53,15 @@ export function assertContentIntegrity(): void {
         .sort(),
     ]),
   ) as Record<Locale, string[]>;
+  const featuredOrderByLocale = Object.fromEntries(
+    locales.map((locale) => [
+      locale,
+      publicProjects
+        .filter((project) => project.locale === locale && project.featured)
+        .sort(byOrder)
+        .map((project) => project.key),
+    ]),
+  ) as Record<Locale, string[]>;
 
   if (featuredByLocale.zh.join("|") !== featuredByLocale.en.join("|")) {
     throw new Error(
@@ -56,6 +69,22 @@ export function assertContentIntegrity(): void {
         ", ",
       )}], en=[${featuredByLocale.en.join(", ")}]`,
     );
+  }
+
+  const expectedFeatured = ["medical-multimodal-alignment", "safecommunity-ai"];
+  if (featuredByLocale.zh.join("|") !== expectedFeatured.join("|")) {
+    throw new Error(
+      `Expected featured projects [${expectedFeatured.join(", ")}], received [${featuredByLocale.zh.join(", ")}].`,
+    );
+  }
+
+  const expectedFeaturedOrder = ["safecommunity-ai", "medical-multimodal-alignment"];
+  for (const locale of locales) {
+    if (featuredOrderByLocale[locale].join("|") !== expectedFeaturedOrder.join("|")) {
+      throw new Error(
+        `Expected ${locale} featured project order [${expectedFeaturedOrder.join(", ")}], received [${featuredOrderByLocale[locale].join(", ")}].`,
+      );
+    }
   }
 
   for (const locale of locales) {
@@ -81,6 +110,15 @@ export function assertContentIntegrity(): void {
     if (!zhProject || !enProject || zhProject.slug !== enProject.slug) {
       throw new Error(`Project "${key}" must use the same slug in zh and en.`);
     }
+
+    for (const project of [zhProject, enProject]) {
+      const label = `${project.locale} featured project "${project.key}"`;
+      assertNonEmpty(project.title, `${label} title`);
+      assertNonEmpty(project.status, `${label} status`);
+      assertNonEmpty(project.homepageContribution, `${label} homepageContribution`);
+      assertNonEmpty(project.image.src, `${label} image source`);
+      assertNonEmpty(project.image.alt, `${label} image alt`);
+    }
   }
 
   for (const locale of locales) {
@@ -101,12 +139,10 @@ export function getLocalizedContent(locale: Locale): LocalizedContent {
 
   return {
     profile,
-    researchAreas: publicForLocale(researchAreas, locale),
     projects: publicForLocale(projects, locale),
     experiences: publicForLocale(experiences, locale),
     achievements: publicForLocale(achievements, locale),
     interests: publicForLocale(interests, locale),
-    skillGroups: publicForLocale(skillGroups, locale),
   };
 }
 

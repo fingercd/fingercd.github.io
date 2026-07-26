@@ -29,7 +29,6 @@ export function Header({
 
   const navItems = useMemo(
     () => [
-      { id: "research", label: dictionary.nav.research },
       { id: "work", label: dictionary.nav.work },
       { id: "experience", label: dictionary.nav.experience },
       { id: "life", label: dictionary.nav.life },
@@ -96,7 +95,6 @@ export function Header({
           </span>
           <span className="brand-copy">
             <strong>Zitong Qi</strong>
-            <small>Vision · Language · Systems</small>
           </span>
         </a>
 
@@ -146,14 +144,13 @@ export function Header({
         hidden={!menuOpen}
       >
         <div className="container mobile-nav-inner">
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <a
               key={item.id}
               href={sectionHref(item.id)}
               onClick={() => setMenuOpen(false)}
               aria-current={displayedActiveSection === item.id ? "location" : undefined}
             >
-              <span aria-hidden="true">0{index + 1}</span>
               {item.label}
             </a>
           ))}

@@ -2,9 +2,7 @@ import type {
   AchievementEntry,
   ExperienceEntry,
   InterestEntry,
-  ResearchArea,
   SiteProfile,
-  SkillGroup,
   WorkEntry,
 } from "./types";
 
@@ -18,15 +16,15 @@ export const siteProfiles: SiteProfile[] = [
     updatedAt,
     name: "齐梓桐",
     alternateName: "Zitong Qi",
-    field: "计算机视觉与多模态学习",
+    field: "计算机视觉 · 多模态学习 · 具身 VLN",
     eyebrow: "宁波大学 · 数学与应用数学本科生",
     introduction:
-      "我关注视频理解、视觉语言模型与多模态表征学习，尝试把研究方法转化为可复现、可部署的 AI 系统。目前持续开展智能视频分析与医学影像多模态对齐相关工作。",
-    availability: "开放计算机视觉与多模态方向的科研交流和实习机会。",
+      "宁波大学数学与应用数学本科生。主要关注真实场景中的视频理解、医学影像多模态表征，以及视觉语言导航与具身模型轻量化。近期在 EAST Lab 参与 VLN 相关研究，也持续维护可复现的视觉系统与实验流程。",
+    availability: "开放计算机视觉、多模态与具身智能方向的科研交流和实习机会。",
     current: "宁波大学 · 数学与应用数学",
     location: "中国 · 宁波",
     github: "https://github.com/fingercd",
-    focus: ["视频理解与异常检测", "视觉语言模型", "可靠评测与系统落地"],
+    focus: ["计算机视觉", "多模态学习", "视觉语言导航与具身智能"],
   },
   {
     locale: "en",
@@ -35,104 +33,20 @@ export const siteProfiles: SiteProfile[] = [
     updatedAt,
     name: "Zitong Qi",
     alternateName: "齐梓桐",
-    field: "Computer Vision & Multimodal Learning",
+    field: "Computer Vision · Multimodal Learning · Embodied VLN",
     eyebrow: "Mathematics undergraduate at Ningbo University",
     introduction:
-      "I work on video understanding, vision-language models, and multimodal representation learning. My goal is to turn research ideas into reproducible, deployable AI systems, with current work spanning intelligent video analytics and multimodal medical imaging.",
+      "I am an undergraduate in Mathematics and Applied Mathematics at Ningbo University. My current work covers video understanding in real-world systems, multimodal representation learning for brain imaging, and lightweight vision-language navigation.",
     availability:
-      "Open to research conversations and internship opportunities in computer vision and multimodal AI.",
+      "Open to research conversations and internships in computer vision, multimodal learning, and embodied AI.",
     current: "Ningbo University · Mathematics",
     location: "Ningbo, China",
     github: "https://github.com/fingercd",
     focus: [
-      "Video understanding",
-      "Vision-language models",
-      "Reliable evaluation & deployment",
+      "Computer vision",
+      "Multimodal learning",
+      "Vision-language navigation & embodied AI",
     ],
-  },
-];
-
-export const researchAreas: ResearchArea[] = [
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "video-understanding",
-    order: 1,
-    title: "视频理解与异常检测",
-    question: "如何让系统理解长视频中的关键事件，而不只是逐帧识别目标？",
-    description:
-      "研究弱监督异常定位、长时序表征与开放集判别，让模型从连续视频中发现、定位并解释值得关注的事件。",
-    methods: ["VideoMAE", "CLIP", "Weakly-supervised MIL", "Temporal modeling"],
-  },
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "multimodal-alignment",
-    order: 2,
-    title: "视觉语言模型与多模态对齐",
-    question: "如何在有限算力下，把视觉、语言与结构化信息对齐到可用表征？",
-    description:
-      "关注参数高效微调、跨模态对比学习与结构化提示，将通用视觉语言模型适配到安防和医学影像等专业场景。",
-    methods: ["Qwen-VL", "LoRA / QLoRA", "SigLIP-style alignment", "Transformers"],
-  },
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "reliable-ai",
-    order: 3,
-    title: "可靠评测与可部署 AI",
-    question: "如何证明模型真的学到了目标能力，并把它稳定接入实际系统？",
-    description:
-      "从数据泄漏、消融评测和失败样例出发建立可信证据，再用模块化服务和可观测流程打通训练、评测与应用。",
-    methods: ["Evaluation protocols", "Ablation studies", "PyTorch", "Web systems"],
-  },
-  {
-    locale: "en",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "video-understanding",
-    order: 1,
-    title: "Video Understanding & Anomaly Detection",
-    question:
-      "How can a system understand important events in long videos instead of treating frames in isolation?",
-    description:
-      "I explore weakly supervised localization, long-range video representations, and open-set reasoning so models can detect, localize, and explain noteworthy events.",
-    methods: ["VideoMAE", "CLIP", "Weakly-supervised MIL", "Temporal modeling"],
-  },
-  {
-    locale: "en",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "multimodal-alignment",
-    order: 2,
-    title: "Vision-Language Models & Alignment",
-    question:
-      "How can visual, textual, and structured signals be aligned under practical compute constraints?",
-    description:
-      "My work uses parameter-efficient adaptation, contrastive learning, and structured prompting to bring general vision-language models into security and medical-imaging settings.",
-    methods: ["Qwen-VL", "LoRA / QLoRA", "SigLIP-style alignment", "Transformers"],
-  },
-  {
-    locale: "en",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "reliable-ai",
-    order: 3,
-    title: "Reliable Evaluation & Deployable AI",
-    question:
-      "How do we verify that a model learned the intended capability and integrate it into a dependable system?",
-    description:
-      "I use leakage-aware protocols, ablations, and failure analysis to establish evidence, then connect training and evaluation to modular, observable applications.",
-    methods: ["Evaluation protocols", "Ablation studies", "PyTorch", "Web systems"],
   },
 ];
 
@@ -147,10 +61,12 @@ export const projects: WorkEntry[] = [
     order: 1,
     kind: "工程项目",
     title: "SafeCommunity AI",
-    year: "2026",
+    year: "2026.01 至 2026.03",
     status: "公开代码",
+    homepageContribution:
+      "负责核心算法与系统集成，将目标检测与跟踪、ROI 规则、视频异常识别和视觉语言模型复核接入同一套 Web 工作流。",
     summary:
-      "面向复杂监控场景的多通道智能视频分析系统，覆盖目标跟踪、规则告警、异常识别与视觉语言模型复核。",
+      "面向复杂监控场景的多路智能视频分析系统，覆盖目标跟踪、规则告警、异常识别与视觉语言模型复核。",
     challenge:
       "传统安防系统依赖固定规则，容易误报，也难以说明事件为什么异常。项目需要同时处理长时序视频、开放集事件和可读的语言解释。",
     role: "核心算法与系统工程",
@@ -160,7 +76,7 @@ export const projects: WorkEntry[] = [
       "构建多路视频、ROI 规则、跟踪与告警闭环的 Web 展示系统。",
     ],
     result:
-      "完成“感知—判别—解释”的端到端闭环，并在公开视频异常数据上完成系统评测；公开仓库提供架构与实现证据。",
+      "项目完成多路视频接入、告警复核与结果展示。公开仓库包含系统架构和实现。",
     methods: [
       "PyTorch",
       "VideoMAE",
@@ -171,8 +87,8 @@ export const projects: WorkEntry[] = [
       "ByteTrack",
     ],
     image: {
-      src: "/images/safecommunity.svg",
-      alt: "SafeCommunity AI 从视频感知、异常判别到语言解释的系统架构图",
+      src: "/images/safecommunity-placeholder.svg",
+      alt: "SafeCommunity AI 项目配图占位区域",
     },
     links: [
       {
@@ -190,12 +106,15 @@ export const projects: WorkEntry[] = [
     key: "medical-multimodal-alignment",
     slug: "medical-multimodal-alignment",
     order: 2,
-    kind: "科研项目",
-    title: "脑影像多模态临床预测",
+    kind: "论文",
+    title:
+      "Anatomical-Clinical Vision Fusion for Multimodal Clinical Prediction with Frozen Brain MRI Encoders",
     year: "2026",
-    status: "Research in Progress",
+    status: "Under Review",
+    venue: "IEEE BIBM 2026",
+    homepageContribution: "多模态方法设计、实验与评测",
     summary:
-      "在冻结 3D MRI 编码器的基础上，对齐脑影像、区域体积与临床文本表征，探索轻量多模态增强。",
+      "围绕冻结的 3D 脑 MRI 编码器，对齐 MRI 表征、AAL 脑区体积和临床信息，研究轻量多模态增强与防泄漏评测。",
     challenge:
       "预训练 MRI 编码器能够提取影像表征，却不直接包含脑区体积和临床语义。直接重训成本高，评测中还需避免认知评分等信息造成标签泄漏。",
     role: "多模态方法设计、实验与评测",
@@ -205,7 +124,7 @@ export const projects: WorkEntry[] = [
       "设计排除认知捷径的评测协议，并开展跨模态消融与失败分析。",
     ],
     result:
-      "研究仍在进行中。为保护未发表工作，本页仅公开问题定义、方法框架和评测原则，不展示投稿信息、内部指标或受控数据。",
+      "论文正在 IEEE BIBM 2026 审稿。公开页面不展示内部指标或受控数据。",
     methods: [
       "3D MRI",
       "Contrastive learning",
@@ -214,15 +133,15 @@ export const projects: WorkEntry[] = [
       "PyTorch",
     ],
     image: {
-      src: "/images/medical-alignment.svg",
-      alt: "医学影像、脑区体积和临床信息对齐到共享表征空间的框架图",
+      src: "/images/acvf-pipeline.png",
+      alt: "ACVF 将脑 MRI、AAL 脑区体积和临床信息融合用于临床预测的论文流程图",
     },
     links: [],
   },
   {
     locale: "zh",
     visibility: "public",
-    featured: true,
+    featured: false,
     updatedAt,
     key: "dcic-forgery-analysis",
     slug: "dcic-forgery-analysis",
@@ -265,7 +184,7 @@ export const projects: WorkEntry[] = [
   {
     locale: "zh",
     visibility: "public",
-    featured: true,
+    featured: false,
     updatedAt,
     key: "kaiwu-rl",
     slug: "kaiwu-reinforcement-learning",
@@ -315,8 +234,10 @@ export const projects: WorkEntry[] = [
     order: 1,
     kind: "Engineering",
     title: "SafeCommunity AI",
-    year: "2026",
+    year: "Jan 2026 to Mar 2026",
     status: "Public repository",
+    homepageContribution:
+      "Led the core algorithms and system integration, connecting detection and tracking, ROI rules, video anomaly recognition, and vision-language review in one web workflow.",
     summary:
       "A multi-channel intelligent video analytics system spanning tracking, rule-based alerts, anomaly recognition, and vision-language review.",
     challenge:
@@ -328,7 +249,7 @@ export const projects: WorkEntry[] = [
       "Built a web workflow for multi-stream video, ROI rules, tracking, and alert review.",
     ],
     result:
-      "Delivered an end-to-end perception–decision–explanation loop and evaluated it on a public video-anomaly benchmark; the public repository provides implementation evidence.",
+      "The system connects multi-stream inputs with alert review and result display. The public repository includes the architecture and implementation.",
     methods: [
       "PyTorch",
       "VideoMAE",
@@ -339,8 +260,8 @@ export const projects: WorkEntry[] = [
       "ByteTrack",
     ],
     image: {
-      src: "/images/safecommunity.svg",
-      alt: "SafeCommunity AI architecture from video perception to anomaly reasoning and language explanation",
+      src: "/images/safecommunity-placeholder.svg",
+      alt: "Placeholder for the SafeCommunity AI project image",
     },
     links: [
       {
@@ -358,12 +279,15 @@ export const projects: WorkEntry[] = [
     key: "medical-multimodal-alignment",
     slug: "medical-multimodal-alignment",
     order: 2,
-    kind: "Research",
-    title: "Multimodal Clinical Prediction from Brain Imaging",
+    kind: "Paper",
+    title:
+      "Anatomical-Clinical Vision Fusion for Multimodal Clinical Prediction with Frozen Brain MRI Encoders",
     year: "2026",
-    status: "Research in Progress",
+    status: "Under Review",
+    venue: "IEEE BIBM 2026",
+    homepageContribution: "Multimodal method design, experiments, and evaluation",
     summary:
-      "Aligning frozen 3D MRI representations with regional volumes and clinical text to study lightweight multimodal enhancement.",
+      "Aligning frozen 3D brain MRI representations with AAL regional volumes and clinical information for lightweight multimodal enhancement and leakage-aware evaluation.",
     challenge:
       "A pretrained MRI encoder captures imaging patterns but does not directly encode regional atrophy or clinical semantics. Full retraining is costly, while evaluation must guard against shortcut leakage from cognitive variables.",
     role: "Multimodal method design, experiments, and evaluation",
@@ -373,7 +297,7 @@ export const projects: WorkEntry[] = [
       "Developed leakage-aware evaluation and cross-modality ablations with systematic failure analysis.",
     ],
     result:
-      "This work is ongoing. To protect unpublished research, this page shares only the problem, high-level method, and evaluation principles—not submission details, internal metrics, or controlled data.",
+      "The paper is under review at IEEE BIBM 2026. This public page omits internal metrics and controlled data.",
     methods: [
       "3D MRI",
       "Contrastive learning",
@@ -382,15 +306,15 @@ export const projects: WorkEntry[] = [
       "PyTorch",
     ],
     image: {
-      src: "/images/medical-alignment.svg",
-      alt: "Framework aligning MRI, regional volume, and clinical information in a shared representation space",
+      src: "/images/acvf-pipeline.png",
+      alt: "ACVF pipeline fusing brain MRI, AAL regional volumes, and clinical information for clinical prediction",
     },
     links: [],
   },
   {
     locale: "en",
     visibility: "public",
-    featured: true,
+    featured: false,
     updatedAt,
     key: "dcic-forgery-analysis",
     slug: "dcic-forgery-analysis",
@@ -433,7 +357,7 @@ export const projects: WorkEntry[] = [
   {
     locale: "en",
     visibility: "public",
-    featured: true,
+    featured: false,
     updatedAt,
     key: "kaiwu-rl",
     slug: "kaiwu-reinforcement-learning",
@@ -481,94 +405,44 @@ export const experiences: ExperienceEntry[] = [
     visibility: "public",
     featured: true,
     updatedAt,
-    key: "medical-research",
-    order: 1,
-    period: "2026.03 — 至今",
-    organization: "医学影像多模态研究合作",
-    role: "研究成员",
-    summary:
-      "围绕冻结 3D MRI 编码器的轻量多模态增强，负责方法设计、实验协议和系统性评测。",
-    highlights: [
-      "对齐脑影像、区域体积与临床文本表征。",
-      "建立防止标签泄漏的评测协议与跨模态消融。",
-      "维护可复现实验配置、日志和结果核验流程。",
-    ],
-    methods: ["3D MRI", "Contrastive learning", "BioClinicalBERT", "PyTorch"],
-  },
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "video-rd",
-    order: 2,
-    period: "2026.01 — 2026.05",
-    organization: "智能视频分析产学合作研发",
-    role: "研发工程师",
-    summary:
-      "针对安防误报和语义解释不足，参与异常识别、开放集复核与 Web 告警闭环的完整研发。",
-    highlights: [
-      "实现长时序视频特征与弱监督异常聚合。",
-      "以参数高效微调适配视觉语言模型的场景解释能力。",
-      "集成多路视频、ROI 规则、跟踪与告警交互。",
-    ],
-    methods: ["VideoMAE", "CLIP", "Qwen-VL", "QLoRA", "Flask"],
-  },
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
     key: "education",
-    order: 3,
-    period: "2024.09 — 2028.06",
+    order: 1,
+    period: "2024.09 至 2028.06",
     organization: "宁波大学",
-    role: "数学与应用数学 · 理学学士",
-    summary:
-      "以数学训练为基础，持续学习机器学习、深度学习、计算机视觉和数学建模。",
-    highlights: [
-      "课程包括 Python 程序设计、机器学习、深度学习与数学建模。",
-      "通过科研、竞赛和工程项目建立从问题建模到系统交付的实践链路。",
-    ],
-    methods: ["Mathematics", "Machine learning", "Deep learning", "Modeling"],
+    role: "数学与应用数学本科",
+    summary: "以数学训练为基础，持续学习并实践机器学习、计算机视觉与多模态方法。",
+    highlights: [],
+    methods: [],
   },
   {
-    locale: "en",
+    locale: "zh",
     visibility: "public",
     featured: true,
     updatedAt,
-    key: "medical-research",
-    order: 1,
-    period: "Mar 2026 — Present",
-    organization: "Multimodal Medical Imaging Research Collaboration",
-    role: "Research contributor",
-    summary:
-      "Working on lightweight multimodal enhancement for frozen 3D MRI encoders, with responsibility for methods, protocols, and systematic evaluation.",
-    highlights: [
-      "Aligned imaging, regional-volume, and clinical-text representations.",
-      "Built leakage-aware protocols and cross-modality ablations.",
-      "Maintained reproducible experiment configurations, logs, and result checks.",
-    ],
-    methods: ["3D MRI", "Contrastive learning", "BioClinicalBERT", "PyTorch"],
-  },
-  {
-    locale: "en",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "video-rd",
+    key: "safecommunity-ai",
     order: 2,
-    period: "Jan 2026 — May 2026",
-    organization: "Industry-Academic Video Analytics R&D",
-    role: "R&D Engineer",
+    period: "2026.01 至 2026.03",
+    organization: "SafeCommunity AI",
+    role: "核心算法与系统工程",
     summary:
-      "Developed anomaly recognition, open-set review, and a web-based alert loop for security-video scenarios with high false-positive and explanation costs.",
-    highlights: [
-      "Implemented long-video features and weakly supervised anomaly aggregation.",
-      "Adapted a vision-language model for domain explanations with parameter-efficient tuning.",
-      "Integrated multi-stream video, ROI rules, tracking, and alert review.",
-    ],
-    methods: ["VideoMAE", "CLIP", "Qwen-VL", "QLoRA", "Flask"],
+      "完成多路视频接入、目标检测与跟踪、规则告警、视频异常识别和 VLM 复核的系统集成。",
+    highlights: [],
+    methods: [],
+  },
+  {
+    locale: "zh",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "east-lab-vln",
+    order: 3,
+    period: "2026.06 至今",
+    organization: "EAST Lab · 张伟老师课题组",
+    role: "研究助理",
+    summary:
+      "围绕视觉语言导航（VLN）评测复现、模型行为分析与具身智能模型轻量化方案验证开展研究。",
+    highlights: [],
+    methods: [],
   },
   {
     locale: "en",
@@ -576,17 +450,44 @@ export const experiences: ExperienceEntry[] = [
     featured: true,
     updatedAt,
     key: "education",
-    order: 3,
-    period: "Sep 2024 — Jun 2028",
+    order: 1,
+    period: "Sep 2024 to Jun 2028",
     organization: "Ningbo University",
     role: "B.Sc. in Mathematics and Applied Mathematics",
     summary:
-      "Building a mathematical foundation alongside sustained work in machine learning, computer vision, and mathematical modeling.",
-    highlights: [
-      "Coursework includes Python programming, machine learning, deep learning, and mathematical modeling.",
-      "Research, competitions, and engineering projects connect formal modeling to working systems.",
-    ],
-    methods: ["Mathematics", "Machine learning", "Deep learning", "Modeling"],
+      "Building a mathematical foundation while working on machine learning, computer vision, and multimodal methods.",
+    highlights: [],
+    methods: [],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "safecommunity-ai",
+    order: 2,
+    period: "Jan 2026 to Mar 2026",
+    organization: "SafeCommunity AI",
+    role: "Core algorithms and system engineering",
+    summary:
+      "Integrated multi-stream video, detection and tracking, rule-based alerts, video anomaly recognition, and VLM review into one system.",
+    highlights: [],
+    methods: [],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "east-lab-vln",
+    order: 3,
+    period: "Jun 2026 to present",
+    organization: "EAST Lab · Prof. Wei Zhang’s Group",
+    role: "Research Assistant",
+    summary:
+      "Working on vision-language navigation (VLN), including evaluation reproduction, model-behavior analysis, and lightweight embodied-model experiments.",
+    highlights: [],
+    methods: [],
   },
 ];
 
@@ -601,7 +502,7 @@ export const achievements: AchievementEntry[] = [
     date: "2026",
     title: "腾讯开悟强化学习竞赛 · 全国总决赛三等奖",
     scope: "国家级",
-    note: "负责多目标分层 PPO、奖励设计与训练迭代。",
+    note: "负责分层 PPO、奖励设计与训练迭代。",
   },
   {
     locale: "zh",
@@ -613,7 +514,7 @@ export const achievements: AchievementEntry[] = [
     date: "本科阶段",
     title: "华为昇腾 AI 创新大赛 · 浙江赛区银奖",
     scope: "省级",
-    note: "围绕 AI 模型与工程系统完成方案开发和展示。",
+    note: "参与方案开发与工程展示。",
   },
   {
     locale: "zh",
@@ -625,7 +526,7 @@ export const achievements: AchievementEntry[] = [
     date: "本科阶段",
     title: "美国大学生数学建模竞赛 · M / H 奖",
     scope: "国际竞赛",
-    note: "完成问题建模、数值分析与论文表达。",
+    note: "负责问题建模、数值分析与论文写作。",
   },
   {
     locale: "zh",
@@ -637,7 +538,7 @@ export const achievements: AchievementEntry[] = [
     date: "本科阶段",
     title: "宁波大学本科二等奖学金",
     scope: "校级",
-    note: "综合课程学习与实践表现。",
+    note: "基于课程学习与综合表现评定。",
   },
   {
     locale: "en",
@@ -649,7 +550,7 @@ export const achievements: AchievementEntry[] = [
     date: "2026",
     title: "Tencent Kaiwu Reinforcement Learning · National Finals Third Prize",
     scope: "National",
-    note: "Led hierarchical multi-objective PPO, reward design, and training iteration.",
+    note: "Led hierarchical PPO, reward design, and training iteration.",
   },
   {
     locale: "en",
@@ -661,7 +562,7 @@ export const achievements: AchievementEntry[] = [
     date: "Undergraduate",
     title: "Huawei Ascend AI Innovation Competition · Zhejiang Silver Award",
     scope: "Provincial",
-    note: "Developed and presented an AI model and engineering system.",
+    note: "Contributed to solution development and the engineering presentation.",
   },
   {
     locale: "en",
@@ -673,7 +574,7 @@ export const achievements: AchievementEntry[] = [
     date: "Undergraduate",
     title: "MCM/ICM · Meritorious / Honorable Mention",
     scope: "International",
-    note: "Contributed problem formulation, numerical analysis, and technical writing.",
+    note: "Worked on problem formulation, numerical analysis, and technical writing.",
   },
   {
     locale: "en",
@@ -685,7 +586,7 @@ export const achievements: AchievementEntry[] = [
     date: "Undergraduate",
     title: "Ningbo University Second-Class Undergraduate Scholarship",
     scope: "University",
-    note: "Awarded for academic and practical performance.",
+    note: "Awarded for coursework and overall performance.",
   },
 ];
 
@@ -697,9 +598,8 @@ export const interests: InterestEntry[] = [
     updatedAt,
     key: "training",
     order: 1,
-    marker: "01",
-    title: "健身与户外运动",
-    description: "通过规律力量训练和户外活动保持长期节奏，也享受持续进步带来的确定感。",
+    title: "力量训练与户外运动",
+    description: "用规律训练保持长期节奏。",
   },
   {
     locale: "zh",
@@ -708,9 +608,8 @@ export const interests: InterestEntry[] = [
     updatedAt,
     key: "hiking",
     order: 2,
-    marker: "02",
     title: "徒步与骑行",
-    description: "喜欢用一段长路线认识城市和自然，在体力分配与路线判断中训练耐心。",
+    description: "喜欢通过长路线认识城市与自然。",
   },
   {
     locale: "zh",
@@ -719,9 +618,8 @@ export const interests: InterestEntry[] = [
     updatedAt,
     key: "mystery",
     order: 3,
-    marker: "03",
-    title: "协作式推理",
-    description: "喜欢剧本推理与叙事解谜，在有限信息中建立假设、沟通线索并共同完成判断。",
+    title: "剧本推理与协作解谜",
+    description: "享受从有限信息中建立假设并共同判断。",
   },
   {
     locale: "en",
@@ -730,10 +628,8 @@ export const interests: InterestEntry[] = [
     updatedAt,
     key: "training",
     order: 1,
-    marker: "01",
-    title: "Strength & Outdoor Training",
-    description:
-      "Regular strength work and outdoor activity help me sustain a long-term rhythm and appreciate measurable progress.",
+    title: "Strength Training & Outdoor Activity",
+    description: "Regular training helps me keep a steady long-term rhythm.",
   },
   {
     locale: "en",
@@ -742,10 +638,8 @@ export const interests: InterestEntry[] = [
     updatedAt,
     key: "hiking",
     order: 2,
-    marker: "02",
     title: "Hiking & Cycling",
-    description:
-      "Long routes are a way to understand cities and landscapes while practicing pacing, judgment, and patience.",
+    description: "I enjoy getting to know cities and landscapes through long routes.",
   },
   {
     locale: "en",
@@ -754,84 +648,7 @@ export const interests: InterestEntry[] = [
     updatedAt,
     key: "mystery",
     order: 3,
-    marker: "03",
-    title: "Collaborative Mystery Solving",
-    description:
-      "I enjoy narrative deduction: building hypotheses from limited evidence, exchanging clues, and converging on a shared judgment.",
-  },
-];
-
-export const skillGroups: SkillGroup[] = [
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "research-methods",
-    order: 1,
-    title: "研究方法",
-    items: ["视频建模", "多模态对齐", "对比学习", "弱监督学习", "消融与可靠评测"],
-  },
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "tooling",
-    order: 2,
-    title: "模型与工具",
-    items: ["PyTorch", "Transformers", "LoRA / QLoRA", "CLIP", "VideoMAE"],
-  },
-  {
-    locale: "zh",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "engineering",
-    order: 3,
-    title: "工程能力",
-    items: ["训练与评测管线", "数据处理", "Flask / Web", "视频流系统", "Git"],
-  },
-  {
-    locale: "en",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "research-methods",
-    order: 1,
-    title: "Research Methods",
-    items: [
-      "Video modeling",
-      "Multimodal alignment",
-      "Contrastive learning",
-      "Weak supervision",
-      "Ablation & evaluation",
-    ],
-  },
-  {
-    locale: "en",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "tooling",
-    order: 2,
-    title: "Models & Tools",
-    items: ["PyTorch", "Transformers", "LoRA / QLoRA", "CLIP", "VideoMAE"],
-  },
-  {
-    locale: "en",
-    visibility: "public",
-    featured: true,
-    updatedAt,
-    key: "engineering",
-    order: 3,
-    title: "Engineering",
-    items: [
-      "Training & evaluation pipelines",
-      "Data processing",
-      "Flask / Web",
-      "Video systems",
-      "Git",
-    ],
+    title: "Narrative Deduction & Collaborative Puzzles",
+    description: "I enjoy building hypotheses from limited evidence and reasoning together.",
   },
 ];

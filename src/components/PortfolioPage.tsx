@@ -1,15 +1,13 @@
-import Image from "next/image";
-import type { Locale, LocalizedContent, WorkEntry } from "@/content/types";
+import type { Locale, LocalizedContent } from "@/content/types";
 import type { UiDictionary } from "@/content/ui";
-import { projectPath } from "@/lib/content";
 import { publicCv } from "@/lib/site";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
   DownloadIcon,
   GithubIcon,
-  LocationIcon,
 } from "./Icons";
+import { FeaturedWorkRow } from "./FeaturedWorkRow";
 import { SectionHeading } from "./SectionHeading";
 
 interface PortfolioPageProps {
@@ -18,101 +16,23 @@ interface PortfolioPageProps {
   dictionary: UiDictionary;
 }
 
-function ProjectCard({
-  locale,
-  project,
-  dictionary,
-  index,
-}: {
-  locale: Locale;
-  project: WorkEntry;
-  dictionary: UiDictionary;
-  index: number;
-}) {
-  const github = project.links.find((link) => link.kind === "github");
-
-  return (
-    <article className="project-card">
-      <a
-        className="project-visual"
-        href={projectPath(locale, project.slug)}
-        aria-label={`0${index + 1} · ${dictionary.project.viewCase}: ${project.title}`}
-      >
-        <Image
-          src={project.image.src}
-          alt={project.image.alt}
-          width={1200}
-          height={675}
-          priority={index === 0}
-          sizes="(max-width: 980px) calc(100vw - 48px), 46vw"
-          unoptimized
-        />
-        <span className="project-index" aria-hidden="true">
-          0{index + 1}
-        </span>
-      </a>
-      <div className="project-copy">
-        <div className="project-meta">
-          <span>{project.kind}</span>
-          <span aria-hidden="true">·</span>
-          <span>{project.year}</span>
-          <span className="project-status">{project.status}</span>
-        </div>
-        <h3>
-          <a href={projectPath(locale, project.slug)}>{project.title}</a>
-        </h3>
-        <p className="project-summary">{project.summary}</p>
-        <dl className="project-facts">
-          <div>
-            <dt>{dictionary.project.role}</dt>
-            <dd>{project.role}</dd>
-          </div>
-          <div>
-            <dt>{dictionary.project.result}</dt>
-            <dd>{project.result}</dd>
-          </div>
-        </dl>
-        <ul className="tag-list" aria-label={dictionary.project.methods}>
-          {project.methods.slice(0, 5).map((method) => (
-            <li key={method}>{method}</li>
-          ))}
-        </ul>
-        <div className="project-links">
-          <a className="text-link" href={projectPath(locale, project.slug)}>
-            {dictionary.project.viewCase}
-            <ArrowRightIcon />
-          </a>
-          {github ? (
-            <a
-              className="text-link is-secondary"
-              href={github.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <GithubIcon />
-              GitHub
-              <ArrowUpRightIcon width={15} height={15} />
-            </a>
-          ) : (
-            <span className="project-disclosure">{dictionary.project.noPublicCode}</span>
-          )}
-        </div>
-      </div>
-    </article>
-  );
-}
-
 export function PortfolioPage({
   locale,
   content,
   dictionary,
 }: PortfolioPageProps) {
   const { profile } = content;
+  const featuredProjects = content.projects
+    .filter((project) => project.featured)
+    .slice(0, 2);
+  const chronologicalExperiences = [...content.experiences].sort(
+    (a, b) => a.order - b.order,
+  );
 
   return (
     <main id="main-content">
       <section className="hero" aria-labelledby="hero-title">
-        <div className="container hero-grid">
+        <div className="container hero-inner">
           <div className="hero-copy">
             <div className="availability">
               <span aria-hidden="true" />
@@ -153,133 +73,57 @@ export function PortfolioPage({
               </a>
             </div>
           </div>
-
-          <aside className="hero-card" aria-label="Profile summary">
-            <div className="hero-card-section">
-              <span className="micro-label">{dictionary.hero.current}</span>
-              <strong>{profile.current}</strong>
-              <span className="location-line">
-                <LocationIcon />
-                {profile.location}
-              </span>
-            </div>
-            <div className="hero-card-section">
-              <span className="micro-label">{dictionary.hero.focus}</span>
-              <ol className="focus-list">
-                {profile.focus.map((item, index) => (
-                  <li key={item}>
-                    <span aria-hidden="true">0{index + 1}</span>
-                    {item}
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <div className="hero-card-section">
-              <span className="micro-label">{dictionary.hero.links}</span>
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                github.com/fingercd
-                <ArrowUpRightIcon width={15} height={15} />
-              </a>
-            </div>
-          </aside>
-        </div>
-        <div className="container hero-scroll">
-          <a href="#research">
-            <span aria-hidden="true" />
-            {dictionary.hero.scroll}
-          </a>
-        </div>
-      </section>
-
-      <section id="research" className="section section-research">
-        <div className="container">
-          <SectionHeading {...dictionary.sections.research} />
-          <div className="research-grid">
-            {content.researchAreas.map((area, index) => (
-              <article className="research-card" key={area.key}>
-                <span className="research-number" aria-hidden="true">
-                  0{index + 1}
-                </span>
-                <h3>{area.title}</h3>
-                <p className="research-question">{area.question}</p>
-                <p>{area.description}</p>
-                <ul className="tag-list is-compact" aria-label={dictionary.project.methods}>
-                  {area.methods.map((method) => (
-                    <li key={method}>{method}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
       <section id="work" className="section section-work">
         <div className="container">
-          <SectionHeading {...dictionary.sections.work} />
-          <div className="project-list">
-            {content.projects
-              .filter((project) => project.featured)
-              .map((project, index) => (
-                <ProjectCard
-                  key={project.key}
-                  locale={locale}
-                  project={project}
-                  dictionary={dictionary}
-                  index={index}
-                />
-              ))}
+          <SectionHeading
+            title={dictionary.sections.work.title}
+            description={dictionary.sections.work.description}
+          />
+          <div className="featured-work-list">
+            {featuredProjects.map((project, index) => (
+              <FeaturedWorkRow
+                key={project.key}
+                locale={locale}
+                project={project}
+                dictionary={dictionary}
+                priority={index === 0 && project.key !== "safecommunity-ai"}
+              />
+            ))}
           </div>
         </div>
       </section>
 
       <section id="experience" className="section section-experience">
         <div className="container">
-          <SectionHeading {...dictionary.sections.experience} />
-          <div className="timeline">
-            {content.experiences.map((entry) => (
-              <article className="timeline-entry" key={entry.key}>
-                <div className="timeline-date">
-                  <span>{entry.period}</span>
+          <SectionHeading
+            title={dictionary.sections.experience.title}
+            description={dictionary.sections.experience.description}
+          />
+          <div className="experience-timeline">
+            {chronologicalExperiences.map((entry) => (
+              <article className="experience-item" key={entry.key}>
+                <time className="experience-date">{entry.period}</time>
+                <span className="experience-marker" aria-hidden="true" />
+                <div className="experience-body">
+                  <h3>{entry.organization}</h3>
+                  <p className="experience-role">{entry.role}</p>
+                  <p className="experience-summary">{entry.summary}</p>
+                  {entry.highlights.length > 0 ? (
+                    <ul className="experience-highlights">
+                      {entry.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {entry.methods.length > 0 ? (
+                    <p className="experience-methods">
+                      {entry.methods.join(" · ")}
+                    </p>
+                  ) : null}
                 </div>
-                <div className="timeline-content">
-                  <div className="timeline-heading">
-                    <div>
-                      <h3>{entry.organization}</h3>
-                      <p>{entry.role}</p>
-                    </div>
-                  </div>
-                  <p className="timeline-summary">{entry.summary}</p>
-                  <ul className="clean-list">
-                    {entry.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                  <ul className="tag-list is-compact" aria-label={dictionary.project.methods}>
-                    {entry.methods.map((method) => (
-                      <li key={method}>{method}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-skills">
-        <div className="container">
-          <SectionHeading {...dictionary.sections.skills} compact />
-          <div className="skill-grid">
-            {content.skillGroups.map((group, index) => (
-              <article className="skill-group" key={group.key}>
-                <span aria-hidden="true">0{index + 1}</span>
-                <h3>{group.title}</h3>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
               </article>
             ))}
           </div>
@@ -288,26 +132,32 @@ export function PortfolioPage({
 
       <section id="life" className="section section-life">
         <div className="container">
-          <SectionHeading {...dictionary.sections.achievements} />
-          <div className="achievement-grid">
+          <SectionHeading
+            title={dictionary.sections.achievements.title}
+            description={dictionary.sections.achievements.description}
+          />
+          <div className="achievement-list">
             {content.achievements.map((achievement) => (
-              <article className="achievement-card" key={achievement.key}>
-                <div className="achievement-meta">
-                  <span>{achievement.scope}</span>
-                  <time>{achievement.date}</time>
+              <article className="achievement-row" key={achievement.key}>
+                <time className="achievement-date">{achievement.date}</time>
+                <div className="achievement-copy">
+                  <span className="achievement-scope">{achievement.scope}</span>
+                  <h3>{achievement.title}</h3>
+                  <p>{achievement.note}</p>
                 </div>
-                <h3>{achievement.title}</h3>
-                <p>{achievement.note}</p>
               </article>
             ))}
           </div>
 
           <div className="interests-block">
-            <SectionHeading {...dictionary.sections.interests} compact />
-            <div className="interest-grid">
+            <SectionHeading
+              title={dictionary.sections.interests.title}
+              description={dictionary.sections.interests.description}
+              compact
+            />
+            <div className="interest-list">
               {content.interests.map((interest) => (
-                <article className="interest-card" key={interest.key}>
-                  <span>{interest.marker}</span>
+                <article className="interest-row" key={interest.key}>
                   <h3>{interest.title}</h3>
                   <p>{interest.description}</p>
                 </article>
@@ -317,27 +167,21 @@ export function PortfolioPage({
         </div>
       </section>
 
-      <section id="contact" className="section section-contact">
-        <div className="container">
-          <div className="contact-panel">
-            <div>
-              <p className="section-label">{dictionary.sections.contact.label}</p>
-              <h2>{dictionary.sections.contact.title}</h2>
-              <p>{dictionary.sections.contact.description}</p>
-            </div>
-            <div className="contact-actions">
-              <a
-                className="button button-primary"
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GithubIcon />
-                GitHub
-                <ArrowUpRightIcon />
-              </a>
-            </div>
+      <section id="contact" className="section home-contact">
+        <div className="container contact-line">
+          <div>
+            <h2>{dictionary.sections.contact.title}</h2>
+            <p>{dictionary.sections.contact.description}</p>
           </div>
+          <a
+            className="text-link"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+            <ArrowUpRightIcon />
+          </a>
         </div>
       </section>
     </main>

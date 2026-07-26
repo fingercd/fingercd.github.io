@@ -23,15 +23,6 @@ export interface SiteProfile extends ContentMeta {
   focus: string[];
 }
 
-export interface ResearchArea extends ContentMeta {
-  key: string;
-  order: number;
-  title: string;
-  question: string;
-  description: string;
-  methods: string[];
-}
-
 export interface ProjectLink {
   label: string;
   href: string;
@@ -46,6 +37,9 @@ export interface WorkEntry extends ContentMeta {
   title: string;
   year: string;
   status: string;
+  authors?: string;
+  venue?: string;
+  homepageContribution?: string;
   summary: string;
   challenge: string;
   role: string;
@@ -82,24 +76,14 @@ export interface AchievementEntry extends ContentMeta {
 export interface InterestEntry extends ContentMeta {
   key: string;
   order: number;
-  marker: string;
   title: string;
   description: string;
 }
 
-export interface SkillGroup extends ContentMeta {
-  key: string;
-  order: number;
-  title: string;
-  items: string[];
-}
-
 export interface LocalizedContent {
   profile: SiteProfile;
-  researchAreas: ResearchArea[];
   projects: WorkEntry[];
   experiences: ExperienceEntry[];
   achievements: AchievementEntry[];
   interests: InterestEntry[];
-  skillGroups: SkillGroup[];
 }

@@ -6,7 +6,8 @@ import "../globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "齐梓桐 · Zitong Qi",
-  description: "Computer vision and multimodal learning portfolio.",
+  description:
+    "Zitong Qi's work in computer vision, multimodal learning, and embodied VLN.",
   robots: {
     index: false,
     follow: true,

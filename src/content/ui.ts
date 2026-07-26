@@ -7,7 +7,6 @@ export interface UiDictionary {
   menuOpen: string;
   menuClose: string;
   nav: {
-    research: string;
     work: string;
     experience: string;
     life: string;
@@ -17,45 +16,25 @@ export interface UiDictionary {
     selectedWork: string;
     downloadCv: string;
     github: string;
-    email: string;
-    current: string;
-    focus: string;
-    links: string;
-    scroll: string;
   };
   sections: {
-    research: {
-      label: string;
-      title: string;
-      description: string;
-    };
     work: {
-      label: string;
       title: string;
       description: string;
     };
     experience: {
-      label: string;
-      title: string;
-      description: string;
-    };
-    skills: {
-      label: string;
       title: string;
       description: string;
     };
     achievements: {
-      label: string;
       title: string;
       description: string;
     };
     interests: {
-      label: string;
       title: string;
       description: string;
     };
     contact: {
-      label: string;
       title: string;
       description: string;
     };
@@ -95,61 +74,36 @@ export const ui: Record<Locale, UiDictionary> = {
     menuOpen: "打开导航",
     menuClose: "关闭导航",
     nav: {
-      research: "研究方向",
-      work: "精选成果",
+      work: "代表工作",
       experience: "经历",
-      life: "荣誉与兴趣",
+      life: "荣誉",
       cv: "简历",
     },
     hero: {
-      selectedWork: "查看精选成果",
-      downloadCv: "下载简历",
+      selectedWork: "代表工作",
+      downloadCv: "简历",
       github: "GitHub",
-      email: "邮件联系",
-      current: "CURRENT",
-      focus: "FOCUS",
-      links: "LINKS",
-      scroll: "向下了解更多",
     },
     sections: {
-      research: {
-        label: "01 · RESEARCH",
-        title: "从问题出发，而不是从关键词出发",
-        description:
-          "我关心模型是否理解事件、不同模态是否真正互补，以及研究结论能否经得住可靠评测并进入实际系统。",
-      },
       work: {
-        label: "02 · SELECTED WORK",
-        title: "代表性研究与工程成果",
-        description:
-          "每个项目都说明问题、个人角色、方法、结果与可验证证据；未发表内容按保守边界展示。",
+        title: "代表工作",
+        description: "SafeCommunity AI 与 ACVF 医学多模态论文。",
       },
       experience: {
-        label: "03 · EXPERIENCE",
-        title: "学习、研究与工程经历",
-        description:
-          "以时间线记录我如何从数学基础走向视觉与多模态研究，并把模型接入可用系统。",
-      },
-      skills: {
-        label: "METHODS & TOOLS",
-        title: "能力不是进度条，而是一组可复用的方法",
-        description: "围绕研究、模型与工程三层组织，便于快速理解我能解决的问题。",
+        title: "经历",
+        description: "宁波大学、SafeCommunity AI 与 EAST Lab。",
       },
       achievements: {
-        label: "04 · RECOGNITION",
-        title: "荣誉与竞赛",
-        description: "只展示已确认、适合公开的奖项与个人贡献。",
+        title: "荣誉",
+        description: "竞赛与奖学金记录。",
       },
       interests: {
-        label: "BEYOND WORK",
         title: "研究之外",
-        description: "运动、长路线与协作推理，帮助我保持节奏、耐心和对复杂问题的好奇。",
+        description: "力量训练、长路线与协作解谜。",
       },
       contact: {
-        label: "LET’S CONNECT",
-        title: "欢迎交流研究、项目与实习机会",
-        description:
-          "如果你对视频理解、多模态学习或可靠 AI 系统感兴趣，欢迎通过 GitHub 联系我。",
+        title: "联系",
+        description: "研究交流与实习联系请通过 GitHub。",
       },
     },
     project: {
@@ -163,13 +117,13 @@ export const ui: Record<Locale, UiDictionary> = {
       contributions: "关键贡献",
       evidence: "结果与公开边界",
       noPublicCode: "研究进行中，代码与论文暂未公开。",
-      back: "返回精选成果",
+      back: "返回代表工作",
       next: "下一个项目",
     },
     footer: {
-      note: "以研究问题为起点，以可验证系统为落点。",
-      updated: "最后更新：2026 年 7 月",
-      privacy: "本网站不包含手机号、住址、受控数据或未审查指标。",
+      note: "计算机视觉 · 多模态学习 · 具身 VLN",
+      updated: "更新于 2026 年",
+      privacy: "公开版不含手机号、住址、受控数据或未审查指标。",
     },
     notFound: {
       code: "404",
@@ -185,64 +139,36 @@ export const ui: Record<Locale, UiDictionary> = {
     menuOpen: "Open navigation",
     menuClose: "Close navigation",
     nav: {
-      research: "Research",
       work: "Selected Work",
       experience: "Experience",
-      life: "Recognition & Life",
+      life: "Recognition",
       cv: "CV",
     },
     hero: {
       selectedWork: "Selected Work",
-      downloadCv: "Download CV",
+      downloadCv: "CV",
       github: "GitHub",
-      email: "Email",
-      current: "CURRENT",
-      focus: "FOCUS",
-      links: "LINKS",
-      scroll: "Scroll to explore",
     },
     sections: {
-      research: {
-        label: "01 · RESEARCH",
-        title: "Questions first, keywords second",
-        description:
-          "I care whether models understand events, whether modalities add complementary evidence, and whether a result survives reliable evaluation and real system constraints.",
-      },
       work: {
-        label: "02 · SELECTED WORK",
-        title: "Research and engineering, with evidence",
-        description:
-          "Each project states the problem, my role, methods, outcome, and public evidence. Unpublished work is intentionally shown at a conservative level.",
+        title: "Selected Work",
+        description: "SafeCommunity AI and the ACVF multimodal medical-imaging paper.",
       },
       experience: {
-        label: "03 · EXPERIENCE",
-        title: "Learning, research, and engineering",
-        description:
-          "A timeline of how I connect a mathematical foundation with computer vision, multimodal research, and working AI systems.",
-      },
-      skills: {
-        label: "METHODS & TOOLS",
-        title: "Capabilities are reusable methods, not progress bars",
-        description:
-          "Organized across research, model tooling, and engineering so the problems I can work on are easy to understand.",
+        title: "Experience",
+        description: "Ningbo University, SafeCommunity AI, and EAST Lab.",
       },
       achievements: {
-        label: "04 · RECOGNITION",
-        title: "Awards & competitions",
-        description:
-          "Only confirmed, public-safe recognition and personal contributions are included.",
+        title: "Recognition",
+        description: "Competition awards and scholarship.",
       },
       interests: {
-        label: "BEYOND WORK",
-        title: "Outside research",
-        description:
-          "Training, long routes, and collaborative deduction help me sustain rhythm, patience, and curiosity for complex problems.",
+        title: "Outside Research",
+        description: "Strength training, long routes, and collaborative puzzles.",
       },
       contact: {
-        label: "LET’S CONNECT",
-        title: "Open to research, projects, and internships",
-        description:
-          "If you are working on video understanding, multimodal learning, or reliable AI systems, feel free to reach out on GitHub.",
+        title: "Contact",
+        description: "For research conversations or internships, reach out on GitHub.",
       },
     },
     project: {
@@ -260,10 +186,10 @@ export const ui: Record<Locale, UiDictionary> = {
       next: "Next project",
     },
     footer: {
-      note: "Start from a research question. Finish with verifiable systems.",
-      updated: "Last updated: July 2026",
+      note: "Computer Vision · Multimodal Learning · Embodied VLN",
+      updated: "Updated in 2026",
       privacy:
-        "This site excludes phone numbers, home addresses, controlled data, and unreviewed metrics.",
+        "The public site excludes phone numbers, home addresses, controlled data, and unreviewed metrics.",
     },
     notFound: {
       code: "404",

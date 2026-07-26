@@ -18,11 +18,11 @@ export async function generateMetadata({
   const { profile } = getLocalizedContent(lang);
   const isZh = lang === "zh";
   const title = isZh
-    ? "齐梓桐 · 计算机视觉与多模态学习"
-    : "Zitong Qi · Computer Vision & Multimodal Learning";
+    ? "齐梓桐 · 计算机视觉、多模态学习与具身 VLN"
+    : "Zitong Qi · Computer Vision, Multimodal Learning, and Embodied VLN";
   const description = isZh
-    ? "齐梓桐的中英双语个人主页：计算机视觉、视频理解、视觉语言模型、多模态学习与可部署 AI 系统。"
-    : "Zitong Qi’s bilingual portfolio in computer vision, video understanding, vision-language models, multimodal learning, and deployable AI systems.";
+    ? "齐梓桐的个人主页，记录计算机视觉、多模态学习、视频理解和具身视觉语言导航方向的项目与研究。"
+    : "Zitong Qi's work in computer vision, multimodal learning, video understanding, and embodied vision-language navigation.";
 
   return {
     title,
@@ -35,6 +35,7 @@ export async function generateMetadata({
           "multimodal learning",
           "vision-language models",
           "video understanding",
+          "embodied VLN",
           "Ningbo University",
         ],
     alternates: {
@@ -59,8 +60,8 @@ export async function generateMetadata({
           width: 1200,
           height: 630,
           alt: isZh
-            ? "齐梓桐：计算机视觉与多模态学习"
-            : "Zitong Qi: Computer Vision and Multimodal Learning",
+            ? "齐梓桐：计算机视觉、多模态学习与具身 VLN"
+            : "Zitong Qi: Computer Vision, Multimodal Learning, and Embodied VLN",
         },
       ],
     },
@@ -102,6 +103,8 @@ export default async function LocaleHomePage({
       "Video Understanding",
       "Vision-Language Models",
       "Multimodal Learning",
+      "Embodied AI",
+      "Vision-Language Navigation",
     ],
   };
 
