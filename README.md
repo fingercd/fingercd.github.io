@@ -35,15 +35,17 @@ npm run dev
 npm run check          # Next 路由类型 + TypeScript + ESLint
 npm run build          # 标准 Next 生产构建，产物 .next/
 npm run build:static   # 可选纯静态构建，产物 out/
-npm run build:open-next # OpenNext Cloudflare/Sites 产物 .open-next/
+npm run build:sites    # Sites 静态 Worker 产物 .open-next/
+npm run build:open-next # 可选完整 Next/OpenNext Node 运行时
 ```
 
 ## 两种发布目标
 
 | 目标 | 命令 | 产物 | 适用场景 |
 |---|---|---|---|
-| Codex Sites / Cloudflare Workers（推荐） | `npm run build:open-next` | `.open-next/worker.js` + `.open-next/assets/` | 保留标准 Next 构建能力，使用 OpenNext Worker 入口 |
+| Codex Sites（首发推荐） | `npm run build:sites` | `.open-next/worker.js` + `.open-next/assets/` | 以静态导出为真源，由极小 Worker 处理根路径跳转、404 与安全响应头 |
 | Cloudflare Pages 纯静态迁移 | `npm run build:static` | `out/` | 只有静态资源、不需要 Worker 的备用路线 |
+| 完整 Next/OpenNext | `npm run build:open-next` | `.open-next/worker.js` + Node 运行时 | 仅供未来确有 SSR / Server Actions 需求时重新验证 |
 
 默认 `npm run build` **不会**启用 `output: "export"`，供 OpenNext 与 Sites
 继续处理标准 Next 产物。只有 `STATIC_EXPORT=1`（脚本已通过 `cross-env`
@@ -59,23 +61,23 @@ npm run build:open-next # OpenNext Cloudflare/Sites 产物 .open-next/
 托管系统的身份信息，不要删除、重建或手动替换 ID。保存 Sites 版本前应：
 
 1. 运行 `npm run check`。
-2. 运行 `npm run build:open-next`，确认 `.open-next/worker.js` 与
+2. 运行 `npm run build:sites`，确认 `.open-next/worker.js` 与
    `.open-next/assets/` 存在。
 3. 提交并推送与构建完全一致的源码状态。
 4. 由 Sites 使用该 commit 和同一源码状态生成的归档保存版本。
 
-本交付未执行保存版本或生产部署。
-
 ### Cloudflare Workers
 
-`wrangler.jsonc` 已配置 OpenNext Worker 入口、静态资源目录、`nodejs_compat`
-和当前兼容日期；`open-next.config.ts` 使用无数据库、无 R2 的默认配置。
-本项目已在 Windows 环境成功生成 OpenNext Worker；适配器仍会提示 Windows
-不是完整支持平台，因此生产 CI 推荐使用 Linux runner 或 WSL，以降低运行时
-差异风险。
+`wrangler.jsonc` 已配置 Worker 入口、静态资源目录、`nodejs_compat` 和当前
+兼容日期。首发站点没有 SSR、数据库或 Server Actions，因此 Sites 使用
+`npm run build:sites` 生成的静态 Worker：页面来自 Next 静态导出，Worker 只
+负责根路径跳转、正式 404 与安全响应头。这比加载完整 Node 运行时更小、更稳。
+
+`open-next.config.ts` 与 `npm run build:open-next` 仍保留，供未来确有动态
+服务端需求时迁移；届时应在 Linux CI 和目标 Worker 环境重新做运行时验证。
 
 ```bash
-npm run preview # 在 Workers 本地运行时预览；不会上线
+npm run preview # 构建并本地预览 Sites 静态 Worker；不会上线
 npm run deploy  # 生产部署，有外部影响，确认后再执行
 ```
 
@@ -158,7 +160,8 @@ HTML。`public/_headers` 会随静态资源复制；根页自带浏览器端重�
 | `npm run check` | 已通过：Next route types、TypeScript、ESLint（0 warnings） |
 | `npm run build` | 已通过：15 个 Static / SSG 页面 |
 | `npm run build:static` | 已通过：`out/`、404、双语与 8 个项目详情完整 |
-| `npm run build:open-next` | 已通过：生成 `.open-next/worker.js` 与 assets；有官方 Windows 平台提示 |
+| `npm run build:sites` | 已通过：由 `out/` 生成静态 Worker 与完整 assets，并通过 Wrangler 本地运行时验证 |
+| `npm run build:open-next` | 保留为未来动态迁移入口；首发生产站不加载完整 Node 运行时 |
 | 渲染产物隐私检索 | 已通过：手机号、旧邮箱、`mailto:` 均为零匹配 |
 | SEO 产物检查 | 已通过：canonical、alternate/hreflang、OG、JSON-LD、sitemap、robots |
 | 390 / 768 / 1440 浏览器视觉检查 | 已通过：中英文首页、项目详情与正式 404 共 8 个场景，路由/DOM/控制台零失败 |

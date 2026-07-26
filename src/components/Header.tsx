@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import type { Locale } from "@/content/types";
@@ -86,7 +85,7 @@ export function Header({
   return (
     <header className="site-header" data-menu-open={menuOpen ? "true" : "false"}>
       <div className="container header-shell">
-        <Link
+        <a
           className="brand"
           href={homeHref}
           aria-label={`ZQ · ${dictionary.localeName} home`}
@@ -99,7 +98,7 @@ export function Header({
             <strong>Zitong Qi</strong>
             <small>Vision · Language · Systems</small>
           </span>
-        </Link>
+        </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
@@ -119,14 +118,14 @@ export function Header({
             <DownloadIcon width={16} height={16} />
             <span>{dictionary.nav.cv}</span>
           </a>
-          <Link
+          <a
             className="language-switch"
             href={alternateHref}
             hrefLang={locale === "zh" ? "en" : "zh-CN"}
             onClick={() => setMenuOpen(false)}
           >
             {dictionary.languageSwitch}
-          </Link>
+          </a>
           <button
             className="menu-button"
             type="button"

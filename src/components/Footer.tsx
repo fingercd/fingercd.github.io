@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Locale } from "@/content/types";
 import type { UiDictionary } from "@/content/ui";
 import { ArrowUpRightIcon, GithubIcon } from "./Icons";
@@ -14,9 +13,9 @@ export function Footer({ locale, dictionary, github }: FooterProps) {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <Link className="footer-brand" href={`/${locale}/`}>
+          <a className="footer-brand" href={`/${locale}/`}>
             Zitong Qi
-          </Link>
+          </a>
           <p>{dictionary.footer.note}</p>
         </div>
         <div className="footer-meta">

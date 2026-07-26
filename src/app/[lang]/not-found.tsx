@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowLeftIcon } from "@/components/Icons";
 
 export default function LocaleNotFound() {
@@ -10,13 +9,13 @@ export default function LocaleNotFound() {
         <p>链接可能已经更新，或这项内容尚未公开。</p>
         <p>The link may have changed, or this content is not public yet.</p>
         <div className="not-found-actions">
-          <Link className="button button-primary" href="/zh/">
+          <a className="button button-primary" href="/zh/">
             <ArrowLeftIcon />
             返回中文首页
-          </Link>
-          <Link className="button button-secondary" href="/en/">
+          </a>
+          <a className="button button-secondary" href="/en/">
             English home
-          </Link>
+          </a>
         </div>
       </div>
     </main>

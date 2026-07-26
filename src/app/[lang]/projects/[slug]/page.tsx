@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeftIcon,
@@ -118,10 +117,10 @@ export default async function ProjectPage({
 
       <section className="project-hero">
         <div className="container">
-          <Link className="back-link" href={`/${lang}/#work`}>
+          <a className="back-link" href={`/${lang}/#work`}>
             <ArrowLeftIcon />
             {dictionary.project.back}
-          </Link>
+          </a>
           <div className="project-hero-grid">
             <div>
               <div className="project-meta">
@@ -216,11 +215,11 @@ export default async function ProjectPage({
       </section>
 
       <nav className="next-project" aria-label={dictionary.project.next}>
-        <Link href={projectPath(lang, nextProject.slug)}>
+        <a href={projectPath(lang, nextProject.slug)}>
           <span>{dictionary.project.next}</span>
           <strong>{nextProject.title}</strong>
           <ArrowRightIcon />
-        </Link>
+        </a>
       </nav>
     </main>
   );

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function RootRedirectFallback() {
   return (
     <main className="redirect-page">
@@ -15,9 +13,9 @@ export default function RootRedirectFallback() {
         </span>
         <h1>正在进入齐梓桐的个人主页</h1>
         <p>Redirecting to Zitong Qi&apos;s portfolio…</p>
-        <Link className="button button-primary" href="/zh/">
+        <a className="button button-primary" href="/zh/">
           继续 / Continue
-        </Link>
+        </a>
       </div>
     </main>
   );

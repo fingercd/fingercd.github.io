@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import type { Locale, LocalizedContent, WorkEntry } from "@/content/types";
 import type { UiDictionary } from "@/content/ui";
@@ -34,7 +33,7 @@ function ProjectCard({
 
   return (
     <article className="project-card">
-      <Link
+      <a
         className="project-visual"
         href={projectPath(locale, project.slug)}
         aria-label={`0${index + 1} · ${dictionary.project.viewCase}: ${project.title}`}
@@ -51,7 +50,7 @@ function ProjectCard({
         <span className="project-index" aria-hidden="true">
           0{index + 1}
         </span>
-      </Link>
+      </a>
       <div className="project-copy">
         <div className="project-meta">
           <span>{project.kind}</span>
@@ -60,7 +59,7 @@ function ProjectCard({
           <span className="project-status">{project.status}</span>
         </div>
         <h3>
-          <Link href={projectPath(locale, project.slug)}>{project.title}</Link>
+          <a href={projectPath(locale, project.slug)}>{project.title}</a>
         </h3>
         <p className="project-summary">{project.summary}</p>
         <dl className="project-facts">
@@ -79,10 +78,10 @@ function ProjectCard({
           ))}
         </ul>
         <div className="project-links">
-          <Link className="text-link" href={projectPath(locale, project.slug)}>
+          <a className="text-link" href={projectPath(locale, project.slug)}>
             {dictionary.project.viewCase}
             <ArrowRightIcon />
-          </Link>
+          </a>
           {github ? (
             <a
               className="text-link is-secondary"

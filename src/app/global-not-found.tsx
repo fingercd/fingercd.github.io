@@ -1,5 +1,4 @@
 import "./globals.css";
-import Link from "next/link";
 import { absoluteUrl } from "@/lib/site";
 
 export default function GlobalNotFound() {
@@ -30,7 +29,7 @@ export default function GlobalNotFound() {
         </a>
         <header className="error-header">
           <div className="container error-header-inner">
-            <Link className="brand" href="/zh/" aria-label="Zitong Qi 中文首页">
+            <a className="brand" href="/zh/" aria-label="Zitong Qi 中文首页">
               <span className="brand-mark" aria-hidden="true">
                 ZQ
               </span>
@@ -38,14 +37,14 @@ export default function GlobalNotFound() {
                 <strong>Zitong Qi</strong>
                 <small>Vision · Language · Systems</small>
               </span>
-            </Link>
+            </a>
             <nav aria-label="Language home links">
-              <Link href="/zh/" hrefLang="zh-CN">
+              <a href="/zh/" hrefLang="zh-CN">
                 中文首页
-              </Link>
-              <Link href="/en/" hrefLang="en">
+              </a>
+              <a href="/en/" hrefLang="en">
                 English home
-              </Link>
+              </a>
             </nav>
           </div>
         </header>
@@ -56,12 +55,12 @@ export default function GlobalNotFound() {
             <p>链接可能已经更新，或这项内容尚未公开。</p>
             <p>The link may have changed, or this content is not public yet.</p>
             <div className="not-found-actions">
-              <Link className="button button-primary" href="/zh/">
+              <a className="button button-primary" href="/zh/">
                 返回中文首页
-              </Link>
-              <Link className="button button-secondary" href="/en/">
+              </a>
+              <a className="button button-secondary" href="/en/">
                 English home
-              </Link>
+              </a>
             </div>
           </div>
         </main>
