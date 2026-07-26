@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Locale, LocalizedContent } from "@/content/types";
 import type { UiDictionary } from "@/content/ui";
 import { publicCv } from "@/lib/site";
@@ -89,7 +90,7 @@ export function PortfolioPage({
                 locale={locale}
                 project={project}
                 dictionary={dictionary}
-                priority={index === 0 && project.key !== "safecommunity-ai"}
+                priority={index === 0}
               />
             ))}
           </div>
@@ -108,7 +109,25 @@ export function PortfolioPage({
                 <time className="experience-date">{entry.period}</time>
                 <span className="experience-marker" aria-hidden="true" />
                 <div className="experience-body">
-                  <h3>{entry.organization}</h3>
+                  <div className="experience-heading">
+                    {entry.logo ? (
+                      <Image
+                        className="experience-logo"
+                        src={entry.logo.src}
+                        alt={entry.logo.alt}
+                        width={220}
+                        height={58}
+                        sizes="220px"
+                        unoptimized
+                      />
+                    ) : null}
+                    <div>
+                      <h3>{entry.organization}</h3>
+                      {entry.group ? (
+                        <p className="experience-group">{entry.group}</p>
+                      ) : null}
+                    </div>
+                  </div>
                   <p className="experience-role">{entry.role}</p>
                   <p className="experience-summary">{entry.summary}</p>
                   {entry.highlights.length > 0 ? (
@@ -125,6 +144,41 @@ export function PortfolioPage({
                   ) : null}
                 </div>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="section section-skills">
+        <div className="container">
+          <SectionHeading
+            title={dictionary.sections.skills.title}
+            description={dictionary.sections.skills.description}
+          />
+          <div className="skill-grid">
+            {content.skills.map((group, index) => (
+              <article className="skill-group" key={group.key}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{group.title}</h3>
+                  <p>{group.items.join(" · ")}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="skill-logo-strip" aria-label="Selected technology logos">
+            {content.skillLogos.map((logo) => (
+              <figure key={logo.key}>
+                <Image
+                  src={logo.src}
+                  alt=""
+                  width={38}
+                  height={38}
+                  sizes="38px"
+                  unoptimized
+                />
+                <figcaption>{logo.label}</figcaption>
+              </figure>
             ))}
           </div>
         </div>

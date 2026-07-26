@@ -9,6 +9,7 @@ export interface UiDictionary {
   nav: {
     work: string;
     experience: string;
+    skills: string;
     life: string;
     cv: string;
   };
@@ -23,6 +24,10 @@ export interface UiDictionary {
       description: string;
     };
     experience: {
+      title: string;
+      description: string;
+    };
+    skills: {
       title: string;
       description: string;
     };
@@ -76,6 +81,7 @@ export const ui: Record<Locale, UiDictionary> = {
     nav: {
       work: "代表工作",
       experience: "经历",
+      skills: "技术栈",
       life: "荣誉",
       cv: "简历",
     },
@@ -91,7 +97,11 @@ export const ui: Record<Locale, UiDictionary> = {
       },
       experience: {
         title: "经历",
-        description: "宁波大学、SafeCommunity AI 与 EAST Lab。",
+        description: "宁波大学、甬江实验室与宁波东方理工大学 EIT。",
+      },
+      skills: {
+        title: "技术栈",
+        description: "来自实际项目与本机仓库的工具、方法和训练经验。",
       },
       achievements: {
         title: "荣誉",
@@ -141,6 +151,7 @@ export const ui: Record<Locale, UiDictionary> = {
     nav: {
       work: "Selected Work",
       experience: "Experience",
+      skills: "Skills",
       life: "Recognition",
       cv: "CV",
     },
@@ -156,7 +167,13 @@ export const ui: Record<Locale, UiDictionary> = {
       },
       experience: {
         title: "Experience",
-        description: "Ningbo University, SafeCommunity AI, and EAST Lab.",
+        description:
+          "Ningbo University, Yongjiang Laboratory, and Eastern Institute of Technology, Ningbo.",
+      },
+      skills: {
+        title: "Technical Skills",
+        description:
+          "Methods and tools evidenced by project work and local repositories.",
       },
       achievements: {
         title: "Recognition",

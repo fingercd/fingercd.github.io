@@ -31,6 +31,7 @@ export function Header({
     () => [
       { id: "work", label: dictionary.nav.work },
       { id: "experience", label: dictionary.nav.experience },
+      { id: "skills", label: dictionary.nav.skills },
       { id: "life", label: dictionary.nav.life },
     ],
     [dictionary],

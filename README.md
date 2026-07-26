@@ -114,11 +114,15 @@ HTML。`public/_headers` 会随静态资源复制；根页自带浏览器端重�
 - 页面组件：`src/components/`
 - 页面路由与 SEO：`src/app/`
 - 项目图：`public/images/`
+- 机构与技术图标来源：`docs/asset-sources.md`
 - 公网简历：`public/cv/qi-zitong-cv-zh.pdf` 和
   `public/cv/zitong-qi-cv-en.pdf`
 
 精选项目的中英文条目必须使用相同 `key` 和 `slug`。任何一侧缺失、slug
 不一致或 locale 内重复，构建会直接失败，避免双语版本漂移。
+首页结构为首屏、代表工作、经历、技术栈、荣誉、研究之外和联系。技术栈
+来自项目与本机仓库的只读审计，分为编程、深度学习、多模态、计算机视觉、
+具身仿真、强化学习和数据建模；不在浏览器或构建过程中扫描个人电脑。
 
 ## 隐私与 visibility 规则
 
@@ -157,14 +161,13 @@ HTML。`public/_headers` 会随静态资源复制；根页自带浏览器端重�
 |---|---|
 | 内容隐私与双语结构审查 | 已完成 |
 | 公开 GitHub 链接核验 | 已完成 |
-| `npm run check` | 已通过：Next route types、TypeScript、ESLint（0 warnings） |
+| `npm run check` | 2026-07-26 已通过：Next route types、TypeScript、ESLint（0 warnings） |
 | `npm run build` | 已通过：15 个 Static / SSG 页面 |
-| `npm run build:static` | 已通过：`out/`、404、双语与 8 个项目详情完整 |
-| `npm run build:sites` | 已通过：由 `out/` 生成静态 Worker 与完整 assets，并通过 Wrangler 本地运行时验证 |
+| `npm run build:static` | 2026-07-26 已通过：`out/`、404、双语与 8 个项目详情完整 |
+| `npm run build:sites` | 2026-07-26 已通过：由 `out/` 生成静态 Worker 与完整 assets，并通过 Wrangler 本地运行时验证 |
 | `npm run build:open-next` | 保留为未来动态迁移入口；首发生产站不加载完整 Node 运行时 |
 | 渲染产物隐私检索 | 已通过：手机号、旧邮箱、`mailto:` 均为零匹配 |
 | SEO 产物检查 | 已通过：canonical、alternate/hreflang、OG、JSON-LD、sitemap、robots |
-| 390 / 768 / 1440 浏览器视觉检查 | 已通过：中英文首页、项目详情与正式 404 共 8 个场景，路由/DOM/控制台零失败 |
-| Lighthouse（桌面） | Performance / Accessibility / Best Practices / SEO 均为 100 |
-| Lighthouse（移动端） | 3 次性能中位数 92；Accessibility / Best Practices / SEO 均为 100；CLS 为 0 |
+| 390 / 768 / 1440 浏览器视觉检查 | 2026-07-26 已通过：新版中英文首页与 SafeCommunity 详情页无横向溢出、失败图片或控制台错误 |
+| Lighthouse（历史基线） | 上一生产版桌面四项均为 100，移动端性能中位数 92；本次内容改版尚未重新跑分 |
 | 生产部署 | 由 `.openai/hosting.json` 绑定的 Codex Sites 版本流程管理；源码不保存令牌或其他部署凭据 |

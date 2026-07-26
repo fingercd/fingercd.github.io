@@ -17,8 +17,6 @@ export function FeaturedWorkRow({
   dictionary,
   priority = false,
 }: FeaturedWorkRowProps) {
-  const isSafeCommunity = project.key === "safecommunity-ai";
-
   return (
     <article className="featured-work-row">
       <a
@@ -26,23 +24,15 @@ export function FeaturedWorkRow({
         href={projectPath(locale, project.slug)}
         aria-label={`${dictionary.project.viewCase}: ${project.title}`}
       >
-        {isSafeCommunity ? (
-          <span
-            className="featured-work-placeholder"
-            role="img"
-            aria-label={project.image.alt}
-          />
-        ) : (
-          <Image
-            src={project.image.src}
-            alt={project.image.alt}
-            width={1200}
-            height={675}
-            priority={priority}
-            sizes="(max-width: 820px) calc(100vw - 40px), 47vw"
-            unoptimized
-          />
-        )}
+        <Image
+          src={project.image.src}
+          alt={project.image.alt}
+          width={1200}
+          height={675}
+          priority={priority}
+          sizes="(max-width: 820px) calc(100vw - 40px), 47vw"
+          unoptimized
+        />
       </a>
 
       <div className="featured-work-copy">

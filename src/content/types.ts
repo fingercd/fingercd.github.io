@@ -10,6 +10,11 @@ export interface ContentMeta {
   updatedAt: string;
 }
 
+export interface ContentImage {
+  src: string;
+  alt: string;
+}
+
 export interface SiteProfile extends ContentMeta {
   name: string;
   alternateName: string;
@@ -46,10 +51,7 @@ export interface WorkEntry extends ContentMeta {
   contributions: string[];
   result: string;
   methods: string[];
-  image: {
-    src: string;
-    alt: string;
-  };
+  image: ContentImage;
   links: ProjectLink[];
 }
 
@@ -58,10 +60,25 @@ export interface ExperienceEntry extends ContentMeta {
   order: number;
   period: string;
   organization: string;
+  group?: string;
   role: string;
   summary: string;
   highlights: string[];
   methods: string[];
+  logo?: ContentImage;
+}
+
+export interface SkillGroup extends ContentMeta {
+  key: string;
+  order: number;
+  title: string;
+  items: string[];
+}
+
+export interface SkillLogo {
+  key: string;
+  label: string;
+  src: string;
 }
 
 export interface AchievementEntry extends ContentMeta {
@@ -84,6 +101,8 @@ export interface LocalizedContent {
   profile: SiteProfile;
   projects: WorkEntry[];
   experiences: ExperienceEntry[];
+  skills: SkillGroup[];
+  skillLogos: SkillLogo[];
   achievements: AchievementEntry[];
   interests: InterestEntry[];
 }

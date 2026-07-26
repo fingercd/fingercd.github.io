@@ -3,6 +3,8 @@ import {
   experiences,
   interests,
   projects,
+  skillLogos,
+  skills,
   siteProfiles,
 } from "@/content/public";
 import { locales, type ContentMeta, type Locale, type LocalizedContent } from "@/content/types";
@@ -127,6 +129,20 @@ export function assertContentIntegrity(): void {
       throw new Error(`Expected one public ${locale} profile, received ${profiles.length}.`);
     }
   }
+
+  const skillKeysByLocale = Object.fromEntries(
+    locales.map((locale) => [
+      locale,
+      publicForLocale(skills, locale).map((entry) => entry.key),
+    ]),
+  ) as Record<Locale, string[]>;
+  if (skillKeysByLocale.zh.join("|") !== skillKeysByLocale.en.join("|")) {
+    throw new Error(
+      `Skill translations are incomplete. zh=[${skillKeysByLocale.zh.join(
+        ", ",
+      )}], en=[${skillKeysByLocale.en.join(", ")}]`,
+    );
+  }
 }
 
 assertContentIntegrity();
@@ -141,6 +157,8 @@ export function getLocalizedContent(locale: Locale): LocalizedContent {
     profile,
     projects: publicForLocale(projects, locale),
     experiences: publicForLocale(experiences, locale),
+    skills: publicForLocale(skills, locale),
+    skillLogos,
     achievements: publicForLocale(achievements, locale),
     interests: publicForLocale(interests, locale),
   };

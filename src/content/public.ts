@@ -2,6 +2,8 @@ import type {
   AchievementEntry,
   ExperienceEntry,
   InterestEntry,
+  SkillGroup,
+  SkillLogo,
   SiteProfile,
   WorkEntry,
 } from "./types";
@@ -19,7 +21,7 @@ export const siteProfiles: SiteProfile[] = [
     field: "计算机视觉 · 多模态学习 · 具身 VLN",
     eyebrow: "宁波大学 · 数学与应用数学本科生",
     introduction:
-      "宁波大学数学与应用数学本科生。主要关注真实场景中的视频理解、医学影像多模态表征，以及视觉语言导航与具身模型轻量化。近期在 EAST Lab 参与 VLN 相关研究，也持续维护可复现的视觉系统与实验流程。",
+      "宁波大学数学与应用数学本科生。主要关注真实场景中的视频理解、多模态表征，以及视觉语言导航与具身模型轻量化。我目前在宁波东方理工大学 EIT 的 EAST Lab 做 VLN 相关研究，平时会整理代码、配置和实验记录，确保结果能够复跑。",
     availability: "开放计算机视觉、多模态与具身智能方向的科研交流和实习机会。",
     current: "宁波大学 · 数学与应用数学",
     location: "中国 · 宁波",
@@ -36,7 +38,7 @@ export const siteProfiles: SiteProfile[] = [
     field: "Computer Vision · Multimodal Learning · Embodied VLN",
     eyebrow: "Mathematics undergraduate at Ningbo University",
     introduction:
-      "I am an undergraduate in Mathematics and Applied Mathematics at Ningbo University. My current work covers video understanding in real-world systems, multimodal representation learning for brain imaging, and lightweight vision-language navigation.",
+      "I am an undergraduate in Mathematics and Applied Mathematics at Ningbo University. My current work covers video understanding in real-world systems, multimodal representation learning, and lightweight vision-language navigation at EAST Lab, Eastern Institute of Technology, Ningbo.",
     availability:
       "Open to research conversations and internships in computer vision, multimodal learning, and embodied AI.",
     current: "Ningbo University · Mathematics",
@@ -87,8 +89,8 @@ export const projects: WorkEntry[] = [
       "ByteTrack",
     ],
     image: {
-      src: "/images/safecommunity-placeholder.svg",
-      alt: "SafeCommunity AI 项目配图占位区域",
+      src: "/images/safecommunity-monitor.png",
+      alt: "SafeCommunity AI 多模态智能视频监控系统的项目总览图",
     },
     links: [
       {
@@ -110,7 +112,7 @@ export const projects: WorkEntry[] = [
     title:
       "Anatomical-Clinical Vision Fusion for Multimodal Clinical Prediction with Frozen Brain MRI Encoders",
     year: "2026",
-    status: "Under Review",
+    status: "在投",
     venue: "IEEE BIBM 2026",
     homepageContribution: "多模态方法设计、实验与评测",
     summary:
@@ -123,8 +125,7 @@ export const projects: WorkEntry[] = [
       "采用冻结编码器与轻量投影层，控制训练成本并保留可迁移性。",
       "设计排除认知捷径的评测协议，并开展跨模态消融与失败分析。",
     ],
-    result:
-      "论文正在 IEEE BIBM 2026 审稿。公开页面不展示内部指标或受控数据。",
+    result: "论文目前在投。公开页面不展示内部指标或受控数据。",
     methods: [
       "3D MRI",
       "Contrastive learning",
@@ -199,17 +200,19 @@ export const projects: WorkEntry[] = [
       "智能体需要在复杂地图中躲避追击并收集资源，任务同时具有局部可观测、多目标冲突、稀疏奖励和长程规划难题。",
     role: "队长、强化学习方案与训练工程",
     contributions: [
-      "设计分层 Actor 与多头 Critic，解耦移动、技能和多目标价值估计。",
-      "构建多源特征交互与长短期记忆，提升局部观测下的长程决策能力。",
-      "使用分阶段奖励和探索反馈缓解稀疏奖励的信用分配问题。",
+      "设计分层 Actor 与多头 Critic，将移动、技能释放和不同任务目标的价值估计解耦。",
+      "融合局部观测、目标关系和历史状态，并使用 LSTM / Transformer Policy 维持长短期决策上下文。",
+      "围绕生存、资源收集与地图探索设计多目标奖励和阶段化 Reward Shaping，缓解稀疏奖励与目标冲突。",
+      "持续迭代采样、评估与训练配置，结合失败回放定位策略坍缩和探索不足问题。",
     ],
     result:
       "方案获得东部赛区初赛前列成绩，并获全国总决赛三等奖；公开仓库记录了网络、奖励与训练设计。",
     methods: [
       "PPO",
       "Actor-Critic",
-      "Transformer",
-      "Long-term memory",
+      "Hierarchical policy",
+      "LSTM / Transformer Policy",
+      "Multi-objective rewards",
       "Reward shaping",
     ],
     image: {
@@ -260,8 +263,8 @@ export const projects: WorkEntry[] = [
       "ByteTrack",
     ],
     image: {
-      src: "/images/safecommunity-placeholder.svg",
-      alt: "Placeholder for the SafeCommunity AI project image",
+      src: "/images/safecommunity-monitor.png",
+      alt: "SafeCommunity AI project overview for a multimodal intelligent video-monitoring system",
     },
     links: [
       {
@@ -372,17 +375,19 @@ export const projects: WorkEntry[] = [
       "The agent must evade pursuit and collect resources in a complex map, bringing partial observability, conflicting objectives, sparse rewards, and long-horizon planning into one task.",
     role: "Team lead, reinforcement-learning design, and training engineering",
     contributions: [
-      "Designed hierarchical actors and multi-head critics to separate movement, skills, and objective-specific value estimates.",
-      "Built multi-source feature interaction and long/short-term memory for decisions under partial observation.",
-      "Used staged reward shaping and exploration feedback to improve credit assignment under sparse rewards.",
+      "Designed hierarchical actors and multi-head critics to separate movement, skill use, and objective-specific value estimates.",
+      "Fused local observations, target relations, and state history with an LSTM / Transformer policy for short- and long-horizon context.",
+      "Designed multi-objective rewards for survival, resource collection, and exploration, with staged reward shaping for sparse feedback and conflicting goals.",
+      "Iterated sampling, evaluation, and training configurations, using failure replays to diagnose policy collapse and insufficient exploration.",
     ],
     result:
       "The solution placed near the top of the regional qualifier and received a national finals third prize; the public repository documents the network, rewards, and training design.",
     methods: [
       "PPO",
       "Actor-Critic",
-      "Transformer",
-      "Long-term memory",
+      "Hierarchical policy",
+      "LSTM / Transformer Policy",
+      "Multi-objective rewards",
       "Reward shaping",
     ],
     image: {
@@ -422,12 +427,17 @@ export const experiences: ExperienceEntry[] = [
     key: "safecommunity-ai",
     order: 2,
     period: "2026.01 至 2026.03",
-    organization: "SafeCommunity AI",
+    organization: "甬江实验室（乐橙实习）",
+    group: "SafeCommunity AI",
     role: "核心算法与系统工程",
     summary:
       "完成多路视频接入、目标检测与跟踪、规则告警、视频异常识别和 VLM 复核的系统集成。",
     highlights: [],
     methods: [],
+    logo: {
+      src: "/images/organizations/yongjiang-lab.svg",
+      alt: "甬江实验室标志",
+    },
   },
   {
     locale: "zh",
@@ -437,12 +447,17 @@ export const experiences: ExperienceEntry[] = [
     key: "east-lab-vln",
     order: 3,
     period: "2026.06 至今",
-    organization: "EAST Lab · 张伟老师课题组",
+    organization: "宁波东方理工大学 EIT",
+    group: "EAST Lab · 张伟课题组",
     role: "研究助理",
     summary:
       "围绕视觉语言导航（VLN）评测复现、模型行为分析与具身智能模型轻量化方案验证开展研究。",
     highlights: [],
     methods: [],
+    logo: {
+      src: "/images/organizations/eit-logo.png",
+      alt: "宁波东方理工大学 EIT 校徽与中英文校名",
+    },
   },
   {
     locale: "en",
@@ -467,12 +482,17 @@ export const experiences: ExperienceEntry[] = [
     key: "safecommunity-ai",
     order: 2,
     period: "Jan 2026 to Mar 2026",
-    organization: "SafeCommunity AI",
+    organization: "Yongjiang Laboratory (Lecheng Internship)",
+    group: "SafeCommunity AI",
     role: "Core algorithms and system engineering",
     summary:
       "Integrated multi-stream video, detection and tracking, rule-based alerts, video anomaly recognition, and VLM review into one system.",
     highlights: [],
     methods: [],
+    logo: {
+      src: "/images/organizations/yongjiang-lab.svg",
+      alt: "Yongjiang Laboratory logo",
+    },
   },
   {
     locale: "en",
@@ -482,13 +502,166 @@ export const experiences: ExperienceEntry[] = [
     key: "east-lab-vln",
     order: 3,
     period: "Jun 2026 to present",
-    organization: "EAST Lab · Prof. Wei Zhang’s Group",
+    organization: "Eastern Institute of Technology, Ningbo (EIT)",
+    group: "EAST Lab · Wei Zhang Group",
     role: "Research Assistant",
     summary:
       "Working on vision-language navigation (VLN), including evaluation reproduction, model-behavior analysis, and lightweight embodied-model experiments.",
     highlights: [],
     methods: [],
+    logo: {
+      src: "/images/organizations/eit-logo.png",
+      alt: "Eastern Institute of Technology, Ningbo (EIT) logo and wordmark",
+    },
   },
+];
+
+export const skills: SkillGroup[] = [
+  {
+    locale: "zh",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "programming",
+    order: 1,
+    title: "编程与脚本",
+    items: ["Python", "TypeScript / JavaScript", "HTML / CSS", "Bash / PowerShell"],
+  },
+  {
+    locale: "zh",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "deep-learning",
+    order: 2,
+    title: "深度学习与多模态",
+    items: ["PyTorch", "Transformers", "PEFT / QLoRA", "CLIP", "Qwen-VL"],
+  },
+  {
+    locale: "zh",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "computer-vision",
+    order: 3,
+    title: "计算机视觉",
+    items: ["OpenCV", "YOLOv8", "VideoMAE v2", "SAM 2", "ByteTrack"],
+  },
+  {
+    locale: "zh",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "embodied-ai",
+    order: 4,
+    title: "具身智能与仿真",
+    items: ["Habitat-Lab", "Habitat-Sim", "VLN-CE", "Isaac Lab", "Isaac Sim"],
+  },
+  {
+    locale: "zh",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "reinforcement-learning",
+    order: 5,
+    title: "强化学习与决策",
+    items: [
+      "PPO / Actor-Critic",
+      "分层策略",
+      "多目标奖励",
+      "LSTM / Transformer Policy",
+      "Reward Shaping",
+    ],
+  },
+  {
+    locale: "zh",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "data-modeling",
+    order: 6,
+    title: "数据分析与建模",
+    items: ["NumPy", "Pandas", "SciPy", "scikit-learn", "XGBoost"],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "programming",
+    order: 1,
+    title: "Programming & Scripting",
+    items: ["Python", "TypeScript / JavaScript", "HTML / CSS", "Bash / PowerShell"],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "deep-learning",
+    order: 2,
+    title: "Deep Learning & Multimodal AI",
+    items: ["PyTorch", "Transformers", "PEFT / QLoRA", "CLIP", "Qwen-VL"],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "computer-vision",
+    order: 3,
+    title: "Computer Vision",
+    items: ["OpenCV", "YOLOv8", "VideoMAE v2", "SAM 2", "ByteTrack"],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "embodied-ai",
+    order: 4,
+    title: "Embodied AI & Simulation",
+    items: ["Habitat-Lab", "Habitat-Sim", "VLN-CE", "Isaac Lab", "Isaac Sim"],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "reinforcement-learning",
+    order: 5,
+    title: "Reinforcement Learning & Decision Making",
+    items: [
+      "PPO / Actor-Critic",
+      "Hierarchical policies",
+      "Multi-objective rewards",
+      "LSTM / Transformer Policy",
+      "Reward Shaping",
+    ],
+  },
+  {
+    locale: "en",
+    visibility: "public",
+    featured: true,
+    updatedAt,
+    key: "data-modeling",
+    order: 6,
+    title: "Data Analysis & Modeling",
+    items: ["NumPy", "Pandas", "SciPy", "scikit-learn", "XGBoost"],
+  },
+];
+
+export const skillLogos: SkillLogo[] = [
+  { key: "python", label: "Python", src: "/images/skills/python.svg" },
+  { key: "pytorch", label: "PyTorch", src: "/images/skills/pytorch.svg" },
+  {
+    key: "hugging-face",
+    label: "Hugging Face",
+    src: "/images/skills/huggingface.svg",
+  },
+  { key: "opencv", label: "OpenCV", src: "/images/skills/opencv.svg" },
+  { key: "nvidia", label: "NVIDIA / Isaac", src: "/images/skills/nvidia.svg" },
+  { key: "numpy", label: "NumPy", src: "/images/skills/numpy.svg" },
 ];
 
 export const achievements: AchievementEntry[] = [
