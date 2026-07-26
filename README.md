@@ -6,6 +6,7 @@ Next.js 16（App Router）+ TypeScript + 原生 CSS；内容在构建期生成�
 
 ## 推荐入口
 
+- 当前生产站：<https://zitong-qi-portfolio.wiggly-lynx-0873.chatgpt.site>
 - 中文首页：`/zh/`
 - English home: `/en/`
 - 根路径 `/`：OpenNext/Workers 环境返回到 `/zh/` 的重定向；纯静态环境使用同页
