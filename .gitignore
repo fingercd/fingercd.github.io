@@ -1,0 +1,30 @@
+# dependencies
+/node_modules/
+
+# Next.js outputs
+/.next/
+/out/
+/.open-next/
+
+# Cloudflare local state
+/.wrangler/
+/.dev.vars
+/.dev.vars.*
+!/.dev.vars.example
+
+# local content that must never enter a public build
+/content-drafts/*
+!/content-drafts/README.md
+
+# local QA artifacts
+/.tmp-review/
+
+# editor and OS files
+.DS_Store
+Thumbs.db
+*.log
+*.tsbuildinfo
+
+# environment files
+.env*
+!.env.example

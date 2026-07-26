@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img">
+  <title>SafeCommunity AI system overview</title>
+  <desc>Video streams pass through visual encoding, anomaly reasoning, and language explanation modules.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef5fb"/>
+      <stop offset="1" stop-color="#f8fbfd"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#173b5c" flood-opacity=".12"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0l8 4-8 4z" fill="#0a5ea8"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#bg)"/>
+  <circle cx="1060" cy="96" r="116" fill="#dcecf8"/>
+  <circle cx="110" cy="600" r="150" fill="#e5f1f9"/>
+  <text x="70" y="84" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="32" font-weight="700">Video anomaly understanding</text>
+  <text x="70" y="122" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="19">Perception → detection → explanation</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="190" width="260" height="330" rx="24" fill="#fff"/>
+    <rect x="96" y="222" width="208" height="118" rx="14" fill="#172033"/>
+    <rect x="111" y="238" width="58" height="38" rx="5" fill="#567a96"/>
+    <rect x="174" y="238" width="58" height="38" rx="5" fill="#6b879e"/>
+    <rect x="237" y="238" width="52" height="38" rx="5" fill="#a6694d"/>
+    <path d="M118 313h164" stroke="#7aa9c8" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="247" cy="313" r="8" fill="#ef8354"/>
+    <text x="96" y="385" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Multi-stream video</text>
+    <text x="96" y="421" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="17">ROI · tracking · rules</text>
+    <rect x="96" y="458" width="108" height="30" rx="15" fill="#e8f2f9"/>
+    <text x="150" y="479" text-anchor="middle" fill="#0a5ea8" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">MJPEG</text>
+  </g>
+
+  <path d="M350 355h88" stroke="#0a5ea8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="460" y="190" width="280" height="330" rx="24" fill="#fff"/>
+    <g transform="translate(500 228)">
+      <rect width="200" height="82" rx="14" fill="#eaf3f9"/>
+      <path d="M18 57c22-6 32-35 55-25s36 29 58 10 32-5 50-19" fill="none" stroke="#0a5ea8" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="128" cy="43" r="8" fill="#ef8354"/>
+    </g>
+    <text x="500" y="355" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Temporal reasoning</text>
+    <text x="500" y="390" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="17">VideoMAE v2 · CLIP</text>
+    <text x="500" y="422" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="17">Attention pooling · Top-K MIL</text>
+    <rect x="500" y="458" width="136" height="30" rx="15" fill="#fff1eb"/>
+    <text x="568" y="479" text-anchor="middle" fill="#a34b27" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">anomaly score</text>
+  </g>
+
+  <path d="M760 355h88" stroke="#0a5ea8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="870" y="190" width="260" height="330" rx="24" fill="#fff"/>
+    <rect x="902" y="225" width="196" height="102" rx="14" fill="#172033"/>
+    <text x="922" y="257" fill="#8bc0e3" font-family="Consolas,monospace" font-size="14">EVENT</text>
+    <text x="922" y="284" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="16">Unusual movement</text>
+    <text x="922" y="308" fill="#c5d2dc" font-family="Inter,Arial,sans-serif" font-size="13">confidence 0.92</text>
+    <text x="902" y="371" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">VLM explanation</text>
+    <text x="902" y="406" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="17">Qwen-VL · QLoRA</text>
+    <text x="902" y="438" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="17">Structured alert output</text>
+    <rect x="902" y="458" width="112" height="30" rx="15" fill="#e8f5ef"/>
+    <text x="958" y="479" text-anchor="middle" fill="#2f6f57" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">actionable</text>
+  </g>
+
+  <text x="70" y="601" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="16">SafeCommunity-AI · selected system architecture</text>
+</svg>

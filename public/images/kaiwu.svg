@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img">
+  <title>Hierarchical reinforcement learning agent</title>
+  <desc>A game agent navigates threats and rewards using hierarchical actor critic policies and staged rewards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edf7f2"/>
+      <stop offset="1" stop-color="#f8fbfd"/>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#1e4e3c" flood-opacity=".13"/>
+    </filter>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0l8 4-8 4z" fill="#2f6f57"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#bg)"/>
+  <text x="70" y="84" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="32" font-weight="700">Hierarchical reinforcement learning</text>
+  <text x="70" y="122" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="19">Survive · collect · explore</text>
+
+  <g filter="url(#s)">
+    <rect x="70" y="182" width="400" height="360" rx="26" fill="#fff"/>
+    <g transform="translate(101 213)">
+      <rect width="338" height="264" rx="18" fill="#e6efe9"/>
+      <path d="M0 66h338M0 132h338M0 198h338M84 0v264M169 0v264M254 0v264" stroke="#c6d8ce" stroke-width="3"/>
+      <rect x="91" y="76" width="70" height="48" rx="10" fill="#9bb8a8"/>
+      <rect x="261" y="10" width="66" height="48" rx="10" fill="#9bb8a8"/>
+      <circle cx="45" cy="230" r="18" fill="#0a5ea8"/>
+      <path d="M39 230l10-8v16z" fill="#fff"/>
+      <circle cx="299" cy="164" r="22" fill="#d45c4b"/>
+      <path d="M288 155l22 18m0-18l-22 18" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+      <rect x="190" y="82" width="26" height="26" rx="6" fill="#e4ae42"/>
+      <path d="M203 75v40M183 95h40" stroke="#fff1c7" stroke-width="3"/>
+      <path d="M47 211C76 163 124 162 165 130s62-49 114-36" fill="none" stroke="#2f6f57" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#a)"/>
+    </g>
+    <text x="101" y="510" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="15">partially observable navigation environment</text>
+  </g>
+
+  <path d="M490 362h76" stroke="#2f6f57" stroke-width="4" marker-end="url(#a)"/>
+
+  <g filter="url(#s)">
+    <rect x="588" y="182" width="280" height="360" rx="26" fill="#fff"/>
+    <text x="624" y="229" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Three-head policy</text>
+    <rect x="624" y="260" width="208" height="58" rx="16" fill="#e7f2ec"/>
+    <text x="646" y="296" fill="#2f6f57" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600">Actor: movement</text>
+    <rect x="624" y="333" width="208" height="58" rx="16" fill="#e7f2ec"/>
+    <text x="646" y="369" fill="#2f6f57" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600">Actor: flash</text>
+    <rect x="624" y="406" width="208" height="78" rx="16" fill="#172033"/>
+    <text x="646" y="438" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Critic × 3</text>
+    <text x="646" y="462" fill="#b8c7c0" font-family="Inter,Arial,sans-serif" font-size="13">survive · collect · explore</text>
+  </g>
+
+  <path d="M888 362h74" stroke="#2f6f57" stroke-width="4" marker-end="url(#a)"/>
+
+  <g filter="url(#s)">
+    <rect x="984" y="214" width="146" height="296" rx="24" fill="#172033"/>
+    <text x="1008" y="260" fill="#9bd0ba" font-family="Inter,Arial,sans-serif" font-size="14">OUTCOME</text>
+    <text x="1008" y="313" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700">9 / 152</text>
+    <text x="1008" y="340" fill="#b8c7c0" font-family="Inter,Arial,sans-serif" font-size="13">regional round</text>
+    <path d="M1008 371h98" stroke="#2f6f57" stroke-width="4"/>
+    <text x="1008" y="414" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700">National</text>
+    <text x="1008" y="440" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700">third prize</text>
+  </g>
+  <text x="70" y="603" fill="#5d6677" font-family="Inter,Arial,sans-serif" font-size="16">Tencent Kaiwu competition · policy and reward design</text>
+</svg>

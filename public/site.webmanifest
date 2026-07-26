@@ -1,0 +1,16 @@
+{
+  "name": "齐梓桐 · Zitong Qi",
+  "short_name": "Zitong Qi",
+  "description": "Computer vision and multimodal learning portfolio.",
+  "start_url": "/zh/",
+  "display": "standalone",
+  "background_color": "#F7F9FC",
+  "theme_color": "#F7F9FC",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
