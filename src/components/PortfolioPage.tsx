@@ -13,7 +13,7 @@ export function PortfolioPage({ locale, content, dictionary }: {
     <section className="profile-intro container" aria-labelledby="profile-name">
       <div className="profile-identity">
         <h1 id="profile-name">{profile.name}</h1>
-        <Image className="profile-photo" src="/images/portrait.png" alt={zh ? "齐梓桐个人照片" : "Portrait of Zitong Qi"} width={1280} height={1621} priority unoptimized sizes="112px" />
+        <Image className="profile-photo" src="/images/portrait-20260927.png" alt={zh ? "齐梓桐个人照片" : "Portrait of Zitong Qi"} width={1122} height={1402} priority unoptimized sizes="112px" />
       </div>
       <div className="profile-biography">
         <p>{profile.introduction}</p>
