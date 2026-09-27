@@ -93,7 +93,7 @@ export const ui: Record<Locale, UiDictionary> = {
     sections: {
       work: {
         title: "代表工作",
-        description: "SafeCommunity AI 与 ACVF 医学多模态论文。",
+        description: "ReInsVLN、ACVF 与 PairSelect 三项近期研究。",
       },
       experience: {
         title: "经历",
@@ -125,14 +125,14 @@ export const ui: Record<Locale, UiDictionary> = {
       overview: "项目概览",
       challenge: "问题与挑战",
       contributions: "关键贡献",
-      evidence: "结果与公开边界",
+      evidence: "实验结果",
       noPublicCode: "研究进行中，代码与论文暂未公开。",
       back: "返回代表工作",
       next: "下一个项目",
     },
     footer: {
-      note: "计算机视觉 · 多模态学习 · 具身 VLN",
-      updated: "更新于 2026 年",
+      note: "具身智能 · 多模态学习 · 模型压缩",
+      updated: "更新于 2026.09.27",
       privacy: "公开版不含手机号、住址、受控数据或未审查指标。",
     },
     notFound: {
@@ -163,7 +163,7 @@ export const ui: Record<Locale, UiDictionary> = {
     sections: {
       work: {
         title: "Selected Work",
-        description: "SafeCommunity AI and the ACVF multimodal medical-imaging paper.",
+        description: "ReInsVLN, ACVF and PairSelect.",
       },
       experience: {
         title: "Experience",
@@ -197,14 +197,14 @@ export const ui: Record<Locale, UiDictionary> = {
       overview: "Project overview",
       challenge: "Problem & challenge",
       contributions: "Key contributions",
-      evidence: "Outcome & disclosure boundary",
+      evidence: "Experimental results",
       noPublicCode: "Research in progress; code and manuscript are not public.",
       back: "Back to selected work",
       next: "Next project",
     },
     footer: {
-      note: "Computer Vision · Multimodal Learning · Embodied VLN",
-      updated: "Updated in 2026",
+      note: "Embodied AI · Multimodal Learning · Model Compression",
+      updated: "Updated 27 Sep 2026",
       privacy:
         "The public site excludes phone numbers, home addresses, controlled data, and unreviewed metrics.",
     },

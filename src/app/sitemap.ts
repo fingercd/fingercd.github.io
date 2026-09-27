@@ -4,7 +4,7 @@ import { absoluteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-const lastModified = new Date("2026-07-26T00:00:00.000Z");
+const lastModified = new Date("2026-09-27T00:00:00.000Z");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const homeEntries: MetadataRoute.Sitemap = (["zh", "en"] as const).map((lang) => ({
@@ -36,5 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })),
   );
 
-  return [...homeEntries, ...projectEntries];
+  const cvEntries: MetadataRoute.Sitemap = (["zh", "en"] as const).map((lang) => ({
+    url: absoluteUrl(`/${lang}/cv/`),
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+    alternates: { languages: { "zh-CN": absoluteUrl("/zh/cv/"), en: absoluteUrl("/en/cv/") } },
+  }));
+  return [...homeEntries, ...cvEntries, ...projectEntries];
 }

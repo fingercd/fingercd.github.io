@@ -130,6 +130,8 @@ export default async function ProjectPage({
                 <span className="project-status">{project.status}</span>
               </div>
               <h1>{project.title}</h1>
+              {project.subtitle ? <p className="paper-subtitle">{project.subtitle}</p> : null}
+              {project.venue ? <p className="experience-role">{project.venue} · {project.status}</p> : null}
               <p className="project-lead">{project.summary}</p>
             </div>
             <dl className="project-hero-facts">
@@ -176,6 +178,8 @@ export default async function ProjectPage({
             <section id="contributions">
               <p className="section-label">02</p>
               <h2>{dictionary.project.contributions}</h2>
+              {project.homepageContribution ? <div className="contribution-note"><h4>{lang === "zh" ? "我的贡献" : "My contribution"}</h4><p>{project.homepageContribution}</p></div> : null}
+              {project.featured ? <h3 className="method-title">{lang === "zh" ? "方法流程" : "Method"}</h3> : null}
               <ol className="contribution-list">
                 {project.contributions.map((contribution, index) => (
                   <li key={contribution}>

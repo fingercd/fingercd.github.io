@@ -73,14 +73,14 @@ export function assertContentIntegrity(): void {
     );
   }
 
-  const expectedFeatured = ["medical-multimodal-alignment", "safecommunity-ai"];
+  const expectedFeatured = ["medical-multimodal-alignment", "pairselect", "reinsvln"];
   if (featuredByLocale.zh.join("|") !== expectedFeatured.join("|")) {
     throw new Error(
       `Expected featured projects [${expectedFeatured.join(", ")}], received [${featuredByLocale.zh.join(", ")}].`,
     );
   }
 
-  const expectedFeaturedOrder = ["safecommunity-ai", "medical-multimodal-alignment"];
+  const expectedFeaturedOrder = ["reinsvln", "medical-multimodal-alignment", "pairselect"];
   for (const locale of locales) {
     if (featuredOrderByLocale[locale].join("|") !== expectedFeaturedOrder.join("|")) {
       throw new Error(

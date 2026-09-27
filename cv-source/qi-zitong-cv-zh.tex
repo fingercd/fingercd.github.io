@@ -1,0 +1,81 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% Zitong Qi research resume. Updated 2026-09-27.
+% Standalone source; template 1 also requires photo.png in this folder.
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec,xeCJK}
+\setCJKmainfont{SimSun}[BoldFont=SimHei]
+\setCJKsansfont{SimHei}[BoldFont=SimHei]
+\setmainfont{EBGaramond}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\usepackage[a4paper,left=12mm,right=12mm,top=10mm,bottom=10mm,nohead]{geometry}
+
+\usepackage{graphicx,titlesec,enumitem,anyfontsize}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Zitong Qi - Research Resume},pdfauthor={Zitong Qi}}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{1em}
+\titleformat{\section}{\fontsize{12.5}{15}\selectfont\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+\setlist[itemize]{leftmargin=1.3em,topsep=2pt,itemsep=1pt,parsep=0pt,partopsep=0pt}
+\newcommand{\entry}[2]{\par\noindent\textbf{#1}\hfill #2\par}
+\newcommand{\researchmeta}[1]{{\fontsize{9.8}{12}\selectfont #1\par}\vspace{1pt}}
+\begin{document}
+\pagenumbering{gobble}
+\fontsize{11}{14}\selectfont
+
+\begin{center}
+{\fontsize{25}{28}\selectfont\sffamily\textbf{齐梓桐}}\\[4pt]
+科研助理／研究实习生\quad |\quad 具身智能、多模态学习、模型压缩\\[2pt]
+\href{https://github.com/fingercd}{github.com/fingercd}\quad |\quad
+\href{https://fingercd.github.io/zh/}{Zitong Qi Portfolio}
+\end{center}
+\section{教育经历}
+\entry{宁波大学\quad 数学与应用数学\quad 理学学士（在读）}{2024.09--2028.06（预计）}
+\textbf{技术能力：}Python、PyTorch、Transformers、PEFT/QLoRA、Habitat、Unitree SDK2；SigLIP、PPO、模型压缩。\par
+\textbf{荣誉奖项：}本科二等奖学金、美赛（MCM/ICM）M／H 奖、华为昇腾 AI 创新大赛浙江赛区银奖。
+
+\section{实习经历}
+\entry{甬江实验室（乐橙科技）｜智能监控研发\quad 研发工程师}{2026.01--2026.03}
+\begin{itemize}
+\item 面向多路安防视频的异常定位与语义解释，构建“\textbf{弱监督异常检测 + VLM 复核}”级联管线；采用 VideoMAE v2／CLIP 滑窗特征与 Attention／Top-K MIL，结合 Ranking Loss、稀疏及时间平滑约束定位异常片段。
+\item 以 \textbf{QLoRA 4-bit} 微调 Qwen3.5-VL（$r=64,\alpha=128$），用结构化 Prompt 约束输出，并通过异常阈值触发与周期复核控制调用频率；\textbf{ECVA 测试集 475 样本}上，准确率 \textbf{65.68\%$\rightarrow$78.53\%}，AUC \textbf{0.7127$\rightarrow$0.8530}。
+\end{itemize}
+
+\section{竞赛经历}
+\entry{腾讯开悟｜峡谷追猎强化学习竞赛\quad \textbf{国家三等奖}}{2026.04--2026.05}
+\begin{itemize}
+\item 面向局部可观测迷宫中的避障、生存与收集任务，将局部语义图、实体状态及长期足迹编码为 \textbf{17 个 token}，以 \textbf{3 层 8 头 Transformer} 融合；基于 \textbf{PPO} 分解闪现门控与方向策略，独立估计生存／收集／探索价值并归一化三路 GAE，结合 BFS 逃生特征与访问热度奖励，获\textbf{全国总决赛三等奖}。
+\end{itemize}
+
+\section{科研经历}
+\entry{ReInsVLN｜免训练视觉语言导航与历史记忆利用}{ICRA 2027 在投}
+\researchmeta{\textbf{东方理工 · EAST-Lab（张伟课题组）｜科研助理｜第二作者（核心贡献者）}\hfill 2026.06--至今}
+\begin{itemize}
+\item 针对导航历史冗余与线索利用不足，\textbf{负责两阶段视觉压缩模块的接入与实现}，协同迭代覆盖度／指令感知压缩策略；\textbf{独立搭建大小脑协同框架}，完成模型在 \textbf{Unitree Go2／G1} 上的部署并参与实物实验，将免训练导航方法落地至四足与人形机器人。
+\item 项目在 \textbf{R2R Val-Unseen 全量 1,839 episodes} 上，StreamVLN／InternVLA-N1 的 SR 分别达到 \textbf{64.27\%／64.44\%}，较原生模型提高 \textbf{8.48／3.37 个百分点}；匹配观测测试中，InternVLA-N1 压缩配置的 prefill 延迟与 KV 存储分别降低 \textbf{21.77\%／32.25\%}。
+\end{itemize}
+
+\vspace{3pt}
+\entry{ACVF｜临床语言与冻结脑 MRI 编码器的多模态融合}{ICASSP 2027 在投}
+\researchmeta{\textbf{共同第一作者（第一顺位）｜独立完成方法设计、实现与实验}}
+\begin{itemize}
+\item 面向冻结视觉表征的临床信息融合，设计轻量 \textbf{ACVF} 框架：将 3D MRI、AAL 脑区体积与 BioClinicalBERT 临床文本投影至 256 维空间，通过\textbf{受试者级 SigLIP 对齐}融合三模态；冻结预训练骨干，按任务剔除标签相关字段，并在 \textbf{1,077 名 ADNI 受试者}上完成跨骨干及模态消融。
+\item 在排除认知评分输入的 AD 分类中，三个骨干的 AUC \textbf{平均提升 0.144}；BrainIAC 的 ACC \textbf{64.6\%$\rightarrow$84.3\%}、AUC \textbf{0.732$\rightarrow$0.922}，性别分类 AUC \textbf{0.637$\rightarrow$0.845}；AnatCL 脑龄 MAE \textbf{4.924$\rightarrow$4.373 年}。
+\end{itemize}
+
+\vspace{3pt}
+\entry{PairSelect｜弱监督视频异常检测的免重训 token 压缩}{ICASSP 2027 在投}
+\researchmeta{\textbf{共同第一作者（第一顺位）｜独立完成方法设计、实现与实验}}
+\begin{itemize}
+\item 针对长视频持续编码的计算开销，在第 6 个 Transformer block 后引入\textbf{局部配对、范数排序与分组配额选择}，保留原始 token 向量和时序覆盖；适配 VideoMAEv2、VideoMAE、TimeSformer、CLIP 四套检测系统，压缩及预算切换均\textbf{无需重训}。
+\item 在 UCF-Crime／XD-Violence 验证三个压缩预算：删除 \textbf{40\% token} 时，batch=32 的\textbf{编码器加速 1.22--1.28 倍}；VideoMAEv2 的 UCF AUC \textbf{80.63\%$\rightarrow$81.02\%}，TimeSformer 的 XD PR-AUC \textbf{76.69\%$\rightarrow$77.37\%}；删除 60\% 时编码器\textbf{最高加速 1.47 倍}。
+\end{itemize}
+
+\vspace{2pt}
+\textbf{其他合作论文}\quad {\small 以下两篇均已投稿 ICASSP 2027}\par\vspace{2pt}
+{\fontsize{9.4}{11.5}\selectfont
+\textbf{ProSeCIL:} Prototype-Calibrated Semantic Fusion for Exemplar-Free Class-Incremental Learning.\hfill \mbox{\textbf{第四作者}}\par\vspace{2pt}
+\textbf{TRICE:} Tri-Branch Calibrated Ensemble for Optimization-Free Incremental Adaptation in Few-Shot Class-Incremental Learning.\hfill \mbox{\textbf{第三作者}}\par
+}
+
+\end{document}

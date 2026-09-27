@@ -21,6 +21,9 @@ export interface SiteProfile extends ContentMeta {
   field: string;
   eyebrow: string;
   introduction: string;
+  publicationSummary: string;
+  interestsSummary: string;
+  skillsSummary: string;
   availability: string;
   current: string;
   location: string;
@@ -41,10 +44,14 @@ export interface WorkEntry extends ContentMeta {
   kind: string;
   title: string;
   year: string;
+  subtitle?: string;
+  metrics?: string[][];
+  caption?: string;
   status: string;
   authors?: string;
   venue?: string;
   homepageContribution?: string;
+  homepageResult?: string;
   summary: string;
   challenge: string;
   role: string;
@@ -73,6 +80,7 @@ export interface SkillGroup extends ContentMeta {
   order: number;
   title: string;
   items: string[];
+  evidence?: string;
 }
 
 export interface SkillLogo {

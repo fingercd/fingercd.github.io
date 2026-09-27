@@ -32,7 +32,6 @@ export function Header({
       { id: "work", label: dictionary.nav.work },
       { id: "experience", label: dictionary.nav.experience },
       { id: "skills", label: dictionary.nav.skills },
-      { id: "life", label: dictionary.nav.life },
     ],
     [dictionary],
   );
@@ -91,9 +90,6 @@ export function Header({
           aria-label={`ZQ · ${dictionary.localeName} home`}
           onClick={() => setMenuOpen(false)}
         >
-          <span className="brand-mark" aria-hidden="true">
-            ZQ
-          </span>
           <span className="brand-copy">
             <strong>Zitong Qi</strong>
           </span>

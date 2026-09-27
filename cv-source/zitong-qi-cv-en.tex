@@ -1,0 +1,83 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% Zitong Qi research resume. Updated 2026-09-27.
+% Standalone source; template 1 also requires photo.png in this folder.
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec,xeCJK}
+\setCJKmainfont{SimSun}[BoldFont=SimHei]
+\setCJKsansfont{SimHei}
+\setmainfont{EBGaramond}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\usepackage[a4paper,left=12mm,right=12mm,top=10mm,bottom=10mm,nohead]{geometry}
+
+\usepackage{graphicx,titlesec,enumitem,anyfontsize}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Zitong Qi - Research Resume},pdfauthor={Zitong Qi}}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{1em}
+\titleformat{\section}{\fontsize{12.5}{15}\selectfont\bfseries\scshape}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+\setlist[itemize]{leftmargin=1.3em,topsep=2pt,itemsep=1pt,parsep=0pt,partopsep=0pt}
+\newcommand{\entry}[2]{\par\noindent\textbf{#1}\hfill #2\par}
+\newcommand{\researchmeta}[1]{{\fontsize{9.8}{12}\selectfont #1\par}\vspace{1pt}}
+\begin{document}
+\pagenumbering{gobble}
+\fontsize{10.5}{12.7}\selectfont
+
+\begin{center}
+{\fontsize{25}{28}\selectfont\textbf{ZITONG QI}}\\[4pt]
+Research Assistant / Research Intern\quad |\quad Embodied Intelligence, Multimodal Learning, Model Compression\\[2pt]
+\href{https://github.com/fingercd}{github.com/fingercd}\quad |\quad
+\href{https://fingercd.github.io/en/}{Zitong Qi Portfolio}
+\end{center}
+
+\section{Education}
+\entry{Ningbo University\quad B.Sc. in Mathematics and Applied Mathematics}{Sep. 2024--Jun. 2028 (expected)}
+\textbf{Skills:} Python, PyTorch, Transformers, PEFT/QLoRA, Habitat, Unitree SDK2; SigLIP, PPO, model compression.\par
+\textbf{Honors:} Second-Class Undergraduate Scholarship; MCM/ICM Meritorious and Honorable Mentions; Huawei Ascend AI Innovation Competition, Zhejiang Regional Silver Award.
+
+\section{Internship Experience}
+\entry{Yongjiang Laboratory (Lecheng Technology) | R\&D Engineer}{Jan.--Mar. 2026}
+\begin{itemize}
+\item Built a \textbf{weakly supervised anomaly detection + VLM review} pipeline for multi-stream surveillance. Combined VideoMAE v2/CLIP sliding-window features with Attention/Top-K MIL, ranking loss, sparsity and temporal smoothness constraints to localize anomalous segments.
+\item Fine-tuned Qwen3.5-VL with \textbf{4-bit QLoRA} ($r=64,\alpha=128$); used structured prompts, threshold triggers and periodic review to control VLM calls. On \textbf{475 ECVA test samples}, accuracy rose from \textbf{65.68\% to 78.53\%} and AUC from \textbf{0.7127 to 0.8530}.
+\end{itemize}
+
+\section{Competition Experience}
+\entry{Tencent Kaiwu Reinforcement Learning Competition | National Third Prize}{Apr.--May 2026}
+\begin{itemize}
+\item Developed a \textbf{PPO} agent for survival, exploration and collection in a partially observed maze. Fused local maps, entity states and persistent traces into \textbf{17 tokens with a 3-layer, 8-head Transformer}; factorized movement/teleport actions and normalized three reward-specific GAE streams. Added BFS escape features and visitation rewards; won a \textbf{National Third Prize}.
+\end{itemize}
+
+\section{Research Experience}
+\entry{ReInsVLN | Training-Free Vision-and-Language Navigation}{Submitted to ICRA 2027}
+\researchmeta{\textbf{EAST-Lab, Eastern Institute of Technology (Wei Zhang's group)}\hfill Jun. 2026--Present}
+\researchmeta{Research Assistant | \textbf{Second author (core contributor)}}
+\begin{itemize}
+\item Addressed redundant visual history by \textbf{implementing and integrating two-stage visual compression}, with collaborative refinement of coverage- and instruction-aware selection. \textbf{Independently built the dual-system navigation framework}, deployed models on \textbf{Unitree Go2 and G1}, and participated in physical-robot experiments.
+\item Across all \textbf{1,839 R2R Val-Unseen episodes}, the project achieved \textbf{64.27\%/64.44\% SR} on StreamVLN/InternVLA-N1, gains of \textbf{8.48/3.37 percentage points}. Under matched observations, the InternVLA-N1 compression configuration reduced prefill latency by \textbf{21.77\%} and KV storage by \textbf{32.25\%}.
+\end{itemize}
+
+\vspace{3pt}
+\entry{ACVF | Clinical Language Alignment for Frozen Brain MRI Encoders}{Submitted to ICASSP 2027}
+\researchmeta{\textbf{Co-first author (listed first)} | Independently designed, implemented and evaluated the method}
+\begin{itemize}
+\item Designed \textbf{ACVF} to fuse frozen 3D MRI features, AAL regional volumes and BioClinicalBERT text in a 256-D space using \textbf{subject-level SigLIP alignment}. Excluded target-related inputs and evaluated backbone/modality ablations on \textbf{1,077 ADNI participants} without retraining pretrained backbones.
+\item With cognitive scores excluded from AD diagnosis inputs, mean AUC improved by \textbf{0.144} across three backbones. BrainIAC AD accuracy rose \textbf{64.6\%$\rightarrow$84.3\%}, AD AUC \textbf{0.732$\rightarrow$0.922}, and sex-classification AUC \textbf{0.637$\rightarrow$0.845}; AnatCL brain-age MAE fell \textbf{4.924$\rightarrow$4.373 years}.
+\end{itemize}
+
+\vspace{3pt}
+\entry{PairSelect | Training-Free Token Compression for Weakly Supervised VAD}{Submitted to ICASSP 2027}
+\researchmeta{\textbf{Co-first author (listed first)} | Independently designed, implemented and evaluated the method}
+\begin{itemize}
+\item Reduced encoding cost through \textbf{local pairing, norm-based ranking and group quotas} after Transformer block 6, preserving token vectors and temporal input coverage. Adapted selection to VideoMAEv2, VideoMAE, TimeSformer and CLIP systems; inserting compression and switching budgets require \textbf{no retraining}.
+\item At \textbf{40\% token deletion}, achieved \textbf{1.22--1.28$\times$ encoder speedup} at batch size 32. VideoMAEv2 UCF-Crime AUC rose \textbf{80.63\%$\rightarrow$81.02\%}; TimeSformer XD-Violence PR-AUC rose \textbf{76.69\%$\rightarrow$77.37\%}. At 60\% deletion, encoder speedup reached \textbf{1.47$\times$}.
+\end{itemize}
+
+\vspace{2pt}
+\textbf{Additional Coauthored Papers}\quad {\small Both submitted to ICASSP 2027}\par\vspace{2pt}
+{\fontsize{9.4}{11.5}\selectfont
+\textbf{ProSeCIL:} Prototype-Calibrated Semantic Fusion for Exemplar-Free Class-Incremental Learning.\hfill \mbox{\textbf{4th author}}\par\vspace{2pt}
+\textbf{TRICE:} Tri-Branch Calibrated Ensemble for Optimization-Free Incremental Adaptation in Few-Shot Class-Incremental Learning.\hfill \mbox{\textbf{3rd author}}\par
+}
+
+\end{document}

@@ -24,6 +24,9 @@
 Thumbs.db
 *.log
 *.tsbuildinfo
+cv-source/*.aux
+cv-source/*.out
+cv-source/*.pdf
 
 # environment files
 .env*
