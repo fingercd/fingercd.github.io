@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Locale, LocalizedContent } from "@/content/types";
 import type { UiDictionary } from "@/content/ui";
-import { publicCv } from "@/lib/site";
+import { publicCv, publicCvImage } from "@/lib/site";
 import { FeaturedWorkRow } from "./FeaturedWorkRow";
 
 export function PortfolioPage({ locale, content, dictionary }: {
@@ -21,6 +21,7 @@ export function PortfolioPage({ locale, content, dictionary }: {
         <p className="profile-interests">{profile.interestsSummary}</p>
         <div className="profile-links">
           <a href={publicCv[locale]} target="_blank" rel="noreferrer">{zh ? "简历 PDF" : "CV PDF"}</a>
+          <a href={publicCvImage[locale]} download>{zh ? "简历 PNG" : "CV PNG"}</a>
           <a href={"/"+locale+"/cv/"}>{zh ? "完整履历" : "Full profile"}</a>
           <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
         </div>

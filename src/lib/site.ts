@@ -12,3 +12,8 @@ export const publicCv = {
   zh: "/cv/qi-zitong-cv-zh.pdf",
   en: "/cv/zitong-qi-cv-en.pdf",
 } as const;
+
+export const publicCvImage = {
+  zh: "/cv/qi-zitong-cv-zh.png",
+  en: "/cv/zitong-qi-cv-en.png",
+} as const;

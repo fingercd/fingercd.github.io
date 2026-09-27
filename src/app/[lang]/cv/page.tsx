@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocalizedContent, isLocale, projectPath } from "@/lib/content";
-import { publicCv } from "@/lib/site";
+import { publicCv, publicCvImage } from "@/lib/site";
 import { DownloadIcon } from "@/components/Icons";
 
 export async function generateMetadata({params}: {params:Promise<{lang:string}>}): Promise<Metadata> {
@@ -20,7 +20,7 @@ export default async function CvPage({params}: {params:Promise<{lang:string}>}) 
     <h1>{content.profile.name}</h1>
     <p>{content.profile.field}</p>
     <p>{content.profile.introduction}</p>
-    <div className="hero-actions cv-download"><a className="button button-primary" href={publicCv[lang]} target="_blank" rel="noreferrer"><DownloadIcon />{zh ? "下载一页简历" : "Download one-page CV"}</a><a className="text-link" href={"/"+lang+"/"}>{zh ? "返回个人主页" : "Back to portfolio"}</a></div>
+    <div className="hero-actions cv-download"><a className="button button-primary" href={publicCv[lang]} target="_blank" rel="noreferrer"><DownloadIcon />{zh ? "下载一页简历" : "Download one-page CV"}</a><a className="text-link" href={publicCvImage[lang]} download>{zh ? "下载简历图片" : "Download CV image"}</a><a className="text-link" href={"/"+lang+"/"}>{zh ? "返回个人主页" : "Back to portfolio"}</a></div>
     <section className="cv-section"><h2>{zh ? "科研与实践经历" : "Research & practical experience"}</h2>
       {content.experiences.map(e=><article className="cv-entry" key={e.key}><h3>{e.organization}</h3><p className="cv-meta">{e.period} · {e.group ? e.group+" · " : ""}{e.role}</p><p>{e.summary}</p></article>)}
     </section>

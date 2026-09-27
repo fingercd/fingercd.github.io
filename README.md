@@ -35,7 +35,7 @@ npm run build:static
 - src/app/globals.css：页面样式
 - public/images/：照片和论文流程图
 - cv-source/：网站公开版简历的 XeLaTeX 源文件
-- public/cv/：网站下载的中英文 PDF
+- public/cv/：网站下载的中英文 PDF 和同名 300 DPI PNG；更新 PDF 时同步导出 PNG
 - src/lib/site.ts：正式网址和简历下载路径
 
 网站版简历以 GitHub 作为联系入口。论文图来自作者提供的稿件，个人照片和项目截图由本人提供；第三方机构标志与技术图标来源见 docs/asset-sources.md。
