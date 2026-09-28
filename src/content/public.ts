@@ -20,7 +20,7 @@ export const siteProfiles: SiteProfile[] = [
       "多模态学习",
       "模型压缩"
     ],
-    "publicationSummary": "目前参与 5 篇在投论文，其中 3 项为核心研究：ACVF、PairSelect 为共同第一作者（第一顺位），ReInsVLN 为第二作者（核心贡献者）。获腾讯开悟强化学习竞赛全国总决赛三等奖。",
+    "publicationSummary": "目前参与 5 篇在投论文，其中 3 项为核心研究：ACVF、PairSelect 为共同第一作者（第一顺位），ReInsVLN 为第二作者（核心贡献者）。获腾讯开悟强化学习竞赛国家三等奖。",
     "interestsSummary": "业余爱好包括力量训练、徒步与骑行。",
     "skillsSummary": "主要使用 Python、PyTorch、Transformers 与 PEFT/QLoRA 开展模型训练和适配，研究方法涉及 SigLIP 对比学习、PPO 强化学习、弱监督 MIL 与视觉 token 压缩；具有 Habitat/VLN-CE 导航评测、Unitree SDK2 机器人接入，以及 MONAI、NiBabel 脑影像处理经验。项目开发涉及 OpenCV、FastAPI/Flask、SQLite、NumPy/pandas、scikit-learn/XGBoost、Linux/SSH 和 Web 界面实现。"
   },
@@ -43,7 +43,7 @@ export const siteProfiles: SiteProfile[] = [
       "Multimodal learning",
       "Model compression"
     ],
-    "publicationSummary": "I have co-authored five submitted papers, including three core studies: ACVF and PairSelect as first-listed co-first author, and ReInsVLN as second author and core contributor. I received a National Finals Third Prize in the Tencent Kaiwu Reinforcement Learning Competition.",
+    "publicationSummary": "I have co-authored five submitted papers, including three core studies: ACVF and PairSelect as first-listed co-first author, and ReInsVLN as second author and core contributor. I received a National Third Prize in the Tencent Kaiwu Reinforcement Learning Competition.",
     "interestsSummary": "Outside research, I enjoy strength training, hiking and cycling.",
     "skillsSummary": "I use Python, PyTorch, Transformers and PEFT/QLoRA for model training and adaptation, with experience in SigLIP contrastive learning, PPO, weakly supervised MIL and visual-token compression. My work includes Habitat/VLN-CE evaluation, Unitree SDK2 integration, and brain-imaging pipelines with MONAI and NiBabel. Engineering tools include OpenCV, FastAPI/Flask, SQLite, NumPy/pandas, scikit-learn/XGBoost, Linux/SSH and web interfaces."
   }
@@ -71,7 +71,7 @@ export const projects: WorkEntry[] = [
     "role": "第二作者（核心贡献者）",
     "summary": "让导航模型保留关键的历史线索，并在需要时重新利用它们。",
     "challenge": "长轨迹带来冗余视觉上下文；即使线索仍在历史中，模型也可能没有在决策时使用。",
-    "homepageContribution": "负责两阶段视觉压缩模块的接入与实现，协同迭代历史压缩策略；独立构建大小脑协同框架，完成 Go2 / G1 部署并参与实物实验。",
+    "homepageContribution": "负责两阶段视觉压缩模块的接入与实现，协同迭代历史压缩策略；协同构建大小脑框架，适配多款 VLN 模型并打通推理与机器人执行的数据链路，完成 Go2 / G1 部署并参与实物实验。",
     "contributions": [
       "压缩历史观测：在进入语言模型前减少时间冗余，并保护已有记忆未充分覆盖的内容。",
       "按指令筛选：在语言模型内部结合语义相关性与位置，保留关键视觉 token 并恢复原始顺序。",
@@ -264,7 +264,7 @@ export const projects: WorkEntry[] = [
     "kind": "竞赛项目",
     "title": "腾讯开悟 · 峡谷追猎强化学习",
     "year": "2026",
-    "status": "全国总决赛三等奖",
+    "status": "国家三等奖",
     "summary": "面向局部可观测生存博弈的多目标分层 PPO 方案，联合优化生存、收集与探索策略。",
     "challenge": "智能体需要在复杂地图中躲避追击并收集资源，任务同时具有局部可观测、多目标冲突、稀疏奖励和长程规划难题。",
     "role": "队长、强化学习方案与训练工程",
@@ -274,7 +274,7 @@ export const projects: WorkEntry[] = [
       "围绕生存、资源收集与地图探索设计多目标奖励和阶段化 Reward Shaping，缓解稀疏奖励与目标冲突。",
       "持续迭代采样、评估与训练配置，结合失败回放定位策略坍缩和探索不足问题。"
     ],
-    "result": "方案获得东部赛区初赛前列成绩，并获全国总决赛三等奖；公开仓库记录了网络、奖励与训练设计。",
+    "result": "方案获得东部赛区初赛前列成绩，并获国家三等奖；公开仓库记录了网络、奖励与训练设计。",
     "methods": [
       "PPO",
       "Actor-Critic",
@@ -316,7 +316,7 @@ export const projects: WorkEntry[] = [
     "role": "Second author · Core contributor",
     "summary": "Retain useful visual evidence, then help frozen navigators use it at the right moment.",
     "challenge": "Growing histories introduce redundant visual context, while retained landmarks can remain unused in navigation decisions.",
-    "homepageContribution": "Implemented two-stage visual compression and collaboratively refined memory selection. Independently built high-level / low-level coordination, deployed to Go2 and G1, and contributed to robot experiments.",
+    "homepageContribution": "Implemented two-stage visual compression and collaboratively refined memory selection. Collaboratively built the high-level / low-level coordination framework, adapted multiple VLN models, and connected model inference to robot execution. Deployed models on Go2 and G1 and contributed to robot experiments.",
     "contributions": [
       "Compress observation history before the language model, reducing temporal redundancy while protecting poorly covered content.",
       "Select visual tokens inside the language model using instruction relevance and position, then restore their original order.",
@@ -509,7 +509,7 @@ export const projects: WorkEntry[] = [
     "kind": "Competition",
     "title": "Tencent Kaiwu · Reinforcement Learning",
     "year": "2026",
-    "status": "National Finals · Third Prize",
+    "status": "National Third Prize",
     "summary": "A multi-objective hierarchical PPO agent for a partially observable survival game, balancing survival, collection, and exploration.",
     "challenge": "The agent must evade pursuit and collect resources in a complex map, bringing partial observability, conflicting objectives, sparse rewards, and long-horizon planning into one task.",
     "role": "Team lead, reinforcement-learning design, and training engineering",
@@ -519,7 +519,7 @@ export const projects: WorkEntry[] = [
       "Designed multi-objective rewards for survival, resource collection, and exploration, with staged reward shaping for sparse feedback and conflicting goals.",
       "Iterated sampling, evaluation, and training configurations, using failure replays to diagnose policy collapse and insufficient exploration."
     ],
-    "result": "The solution placed near the top of the regional qualifier and received a national finals third prize; the public repository documents the network, rewards, and training design.",
+    "result": "The solution placed near the top of the regional qualifier and received a national third prize; the public repository documents the network, rewards, and training design.",
     "methods": [
       "PPO",
       "Actor-Critic",
@@ -628,7 +628,7 @@ export const experiences: ExperienceEntry[] = [
     "order": 3,
     "period": "2026.04 — 2026.05",
     "organization": "腾讯开悟 · 峡谷追猎强化学习竞赛",
-    "role": "全国总决赛三等奖（国家级）",
+    "role": "国家三等奖",
     "summary": "设计 17-token Transformer 策略与 PPO 训练流程，结合三路价值估计、GAE、BFS 逃生特征和多目标奖励优化生存、收集与探索。",
     "highlights": [],
     "methods": [
@@ -647,7 +647,7 @@ export const experiences: ExperienceEntry[] = [
     "order": 3,
     "period": "2026.04 — 2026.05",
     "organization": "Tencent Kaiwu · Reinforcement Learning Competition",
-    "role": "National Finals · Third Prize",
+    "role": "National Third Prize",
     "summary": "Designed a 17-token Transformer policy and PPO training with three value estimates, GAE, BFS escape features and rewards for survival, collection and exploration.",
     "highlights": [],
     "methods": [
@@ -958,7 +958,7 @@ export const achievements: AchievementEntry[] = [
     "key": "kaiwu-prize",
     "order": 1,
     "date": "2026",
-    "title": "腾讯开悟强化学习竞赛 · 全国总决赛三等奖",
+    "title": "腾讯开悟强化学习竞赛 · 国家三等奖",
     "scope": "国家级",
     "note": "负责分层 PPO、奖励设计与训练迭代。"
   },
@@ -1006,7 +1006,7 @@ export const achievements: AchievementEntry[] = [
     "key": "kaiwu-prize",
     "order": 1,
     "date": "2026",
-    "title": "Tencent Kaiwu Reinforcement Learning · National Finals Third Prize",
+    "title": "Tencent Kaiwu Reinforcement Learning · National Third Prize",
     "scope": "National",
     "note": "Led hierarchical PPO, reward design, and training iteration."
   },
