@@ -71,7 +71,7 @@ export const projects: WorkEntry[] = [
     "role": "第二作者（核心贡献者）",
     "summary": "让导航模型保留关键的历史线索，并在需要时重新利用它们。",
     "challenge": "长轨迹带来冗余视觉上下文；即使线索仍在历史中，模型也可能没有在决策时使用。",
-    "homepageContribution": "负责两阶段视觉压缩模块的接入与实现，协同迭代历史压缩策略；协同构建大小脑框架，适配多款 VLN 模型并打通推理与机器人执行的数据链路，完成 Go2 / G1 部署并参与实物实验。",
+    "homepageContribution": "负责视觉压缩模块的前期探索与接入，推进功能实现并协同迭代历史压缩策略；协同构建大小脑框架，适配多款 VLN 模型并打通推理与机器人执行的数据链路，完成 Go2 / G1 部署并参与实物实验。",
     "contributions": [
       "压缩历史观测：在进入语言模型前减少时间冗余，并保护已有记忆未充分覆盖的内容。",
       "按指令筛选：在语言模型内部结合语义相关性与位置，保留关键视觉 token 并恢复原始顺序。",
@@ -316,7 +316,7 @@ export const projects: WorkEntry[] = [
     "role": "Second author · Core contributor",
     "summary": "Retain useful visual evidence, then help frozen navigators use it at the right moment.",
     "challenge": "Growing histories introduce redundant visual context, while retained landmarks can remain unused in navigation decisions.",
-    "homepageContribution": "Implemented two-stage visual compression and collaboratively refined memory selection. Collaboratively built the high-level / low-level coordination framework, adapted multiple VLN models, and connected model inference to robot execution. Deployed models on Go2 and G1 and contributed to robot experiments.",
+    "homepageContribution": "Led early exploration and integration of visual compression, contributed to its implementation, and collaboratively refined memory selection. Collaboratively built the high-level / low-level coordination framework, adapted multiple VLN models, and connected model inference to robot execution. Deployed models on Go2 and G1 and contributed to robot experiments.",
     "contributions": [
       "Compress observation history before the language model, reducing temporal redundancy while protecting poorly covered content.",
       "Select visual tokens inside the language model using instruction relevance and position, then restore their original order.",
@@ -573,7 +573,7 @@ export const experiences: ExperienceEntry[] = [
     "organization": "宁波东方理工大学 EIT",
     "group": "EAST-Lab · 张伟课题组",
     "role": "研究助理",
-    "summary": "开展 ReInsVLN 研究，负责压缩模块接入与实现、大小脑协同框架及 Go2 / G1 部署，并参与实物实验。",
+    "summary": "开展 ReInsVLN 研究，负责视觉压缩模块的前期探索与接入，推进功能实现；协同构建大小脑框架，完成 Go2 / G1 部署并参与实物实验。",
     "highlights": [],
     "methods": [],
     "logo": {
@@ -611,7 +611,7 @@ export const experiences: ExperienceEntry[] = [
     "organization": "Eastern Institute of Technology, Ningbo (EIT)",
     "group": "EAST-Lab · Prof. Wei Zhang’s group",
     "role": "Research Assistant",
-    "summary": "Worked on ReInsVLN, implementing compression integration, high-level / low-level coordination, Go2/G1 deployment and physical-robot experiments.",
+    "summary": "Worked on ReInsVLN: led early exploration and integration of visual compression, contributed to its implementation, collaboratively built high-level / low-level coordination, deployed models on Go2/G1, and participated in robot experiments.",
     "highlights": [],
     "methods": [],
     "logo": {
